@@ -3,6 +3,8 @@
 import styled from "styled-components";
 
 export default function HomePage() {
+  const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "#";
+
   return (
     <PageContainer>
       <Hero>
@@ -17,11 +19,7 @@ export default function HomePage() {
           <StoreBadge>📍 부산 롯데백화점 광복점 네모네</StoreBadge>
         </StoreBadgeRow>
 
-        <PrimaryButton
-          href="https://smartstore.naver.com/리커밋_스토어_URL"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <PrimaryButton href={storeUrl} target="_blank" rel="noreferrer">
           스토어 바로가기
         </PrimaryButton>
       </Hero>
