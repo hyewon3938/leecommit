@@ -35,7 +35,7 @@ export const theme: RecommitTheme = {
     },
     text: {
       primary: "#222222",
-      subtle: "#6B7280",
+      subtle: "#555555",
     },
     brand: {
       main: "#3A5A40",
