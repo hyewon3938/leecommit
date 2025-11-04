@@ -30,7 +30,7 @@ export interface RecommitTheme {
 export const theme: RecommitTheme = {
   color: {
     background: {
-      page: "#F7F5F0",
+      page: "#FFFFFF",
       surface: "#FFFFFF",
     },
     text: {
