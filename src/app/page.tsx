@@ -3,7 +3,7 @@
 import styled from "styled-components";
 
 export default function HomePage() {
-  const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "#";
+  const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
 
   return (
     <PageContainer>
