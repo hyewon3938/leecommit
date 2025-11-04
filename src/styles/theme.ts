@@ -1,7 +1,33 @@
-// styles/theme.ts
-import { DefaultTheme } from "styled-components";
+export interface RecommitTheme {
+  color: {
+    background: {
+      page: string;
+      surface: string;
+    };
+    text: {
+      primary: string;
+      subtle: string;
+    };
+    brand: {
+      main: string;
+      soft: string;
+    };
+    border: {
+      subtle: string;
+    };
+  };
+  radius: {
+    sm: string;
+    md: string;
+    lg: string;
+    pill: string;
+  };
+  shadow: {
+    soft: string;
+  };
+}
 
-export const theme: DefaultTheme = {
+export const theme: RecommitTheme = {
   color: {
     background: {
       page: "#F7F5F0",
@@ -12,7 +38,7 @@ export const theme: DefaultTheme = {
       subtle: "#6B7280",
     },
     brand: {
-      main: "#3A5A40", // 리커밋 톤 그린
+      main: "#3A5A40",
       soft: "#A3B18A",
     },
     border: {

@@ -1,10 +1,8 @@
-// src/styles/styled.d.ts
 import "styled-components";
-import type { theme } from "./theme";
-
-type Theme = typeof theme;
+import type { RecommitTheme } from "./theme";
 
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 declare module "styled-components" {
-  export interface DefaultTheme extends Theme {}
+  // 여기서 우리가 만든 RecommitTheme으로 DefaultTheme를 보강(확장)한다
+  export interface DefaultTheme extends RecommitTheme {}
 }
