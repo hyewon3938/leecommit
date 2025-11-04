@@ -1,66 +1,93 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import styled from "styled-components";
+
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <PageContainer>
+      <Hero>
+        <BrandName>즐거운 독서의 시작, 리커밋</BrandName>
+        <Subtitle>
+          자꾸 책이 읽고 싶어지는 감각적인 끈갈피와 함께, 읽는 시간을 조금 더
+          기분 좋은 순간으로 만듭니다.
+        </Subtitle>
+
+        <StoreBadgeRow>
+          <StoreBadge>📍 제주 고산의 낮</StoreBadge>
+          <StoreBadge>📍 부산 롯데백화점 광복점 네모네</StoreBadge>
+        </StoreBadgeRow>
+
+        <PrimaryButton
+          href="https://smartstore.naver.com/리커밋_스토어_URL"
+          target="_blank"
+          rel="noreferrer"
+        >
+          스토어 바로가기
+        </PrimaryButton>
+      </Hero>
+    </PageContainer>
   );
 }
+
+const PageContainer = styled.main`
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+`;
+
+const Hero = styled.section`
+  background-color: ${({ theme }) => theme.color.background.surface};
+  border-radius: ${({ theme }) => theme.radius.lg};
+  box-shadow: ${({ theme }) => theme.shadow.soft};
+  padding: 32px 28px;
+  margin-top: 40px;
+  border: 1px solid ${({ theme }) => theme.color.border.subtle};
+`;
+
+const BrandName = styled.h1`
+  font-size: 28px;
+  margin: 0 0 8px;
+`;
+
+const Subtitle = styled.p`
+  margin: 0 0 20px;
+  color: ${({ theme }) => theme.color.text.subtle};
+  font-size: 15px;
+  line-height: 1.5;
+`;
+
+const StoreBadgeRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+`;
+
+const StoreBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: ${({ theme }) => theme.radius.pill};
+  background-color: ${({ theme }) => theme.color.brand.soft};
+  color: #fff;
+  font-size: 13px;
+`;
+
+const PrimaryButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: ${({ theme }) => theme.radius.md};
+  background-color: ${({ theme }) => theme.color.brand.main};
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.96;
+  }
+`;
