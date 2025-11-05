@@ -11,10 +11,22 @@ const Header = () => {
     // window.scrollTo({ top: 0, behavior: "auto" });
   };
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    e.preventDefault();
+
     const el = document.getElementById(id);
     if (!el) return;
+
+    // 첫 스크롤
     el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // 혹시 첫 스크롤이 씹힐 경우 대비 (인앱 대응)
+    setTimeout(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
   };
 
   return (
@@ -32,40 +44,16 @@ const Header = () => {
         <NavItem href={storeUrl} target="_blank" rel="noreferrer">
           Shop
         </NavItem>
-        <NavItem
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("about");
-          }}
-        >
+        <NavItem href="#" onClick={(e) => scrollToSection(e, "about")}>
           About
         </NavItem>
-        <NavItem
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("collection");
-          }}
-        >
+        <NavItem href="#" onClick={(e) => scrollToSection(e, "collection")}>
           Collection
         </NavItem>
-        <NavItem
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("space");
-          }}
-        >
+        <NavItem href="#" onClick={(e) => scrollToSection(e, "space")}>
           Space
         </NavItem>
-        <NavItem
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("contact");
-          }}
-        >
+        <NavItem href="#" onClick={(e) => scrollToSection(e, "contact")}>
           Contact
         </NavItem>
       </Nav>
