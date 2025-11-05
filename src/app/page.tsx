@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
-import BrandStorySection from "@/sections/BrandStory/BrandStorySection";
+import AboutSection from "@/sections/About/AboutSection";
 import BackgrondImage from "@/assets/images/background_product.webp";
 
 export default function HomePage() {
@@ -25,7 +25,7 @@ export default function HomePage() {
         </ImageWrap>
       </Background>
       <ContentsWrap>
-        <BrandStorySection />
+        <AboutSection />
       </ContentsWrap>
     </PageContainer>
   );
@@ -38,22 +38,7 @@ const PageContainer = styled.main`
 const ContentsWrap = styled.div`
   position: relative;
   width: 100%;
-  // margin-top: -100vh;
 `;
-
-// const BrandTitle = styled.div`
-//   width: 100%;
-//   height: 100vh;
-//   display: flex;
-//   justify-content: center;
-// `;
-
-// const Contents = styled.div`
-//   width: 100%;
-//   height: 200vh;
-//   background-color: #fff;
-//   border-radius: 48px 48px 0 0;
-// `;
 
 const Background = styled.div`
   position: sticky;
