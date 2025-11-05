@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
-import BrandPhilosophySection from "@/sections/BrandPhilosophy";
+import BrandStorySection from "@/sections/BrandStory/BrandStorySection";
 import BackgrondImage from "@/assets/images/background_product.webp";
 
 export default function HomePage() {
@@ -11,7 +11,8 @@ export default function HomePage() {
     <PageContainer>
       <Header />
       <Background>
-        <BgWrapper>
+        <TitleCard>*~ 즐거운 독서의 시작 ~*</TitleCard>
+        <ImageWrap>
           <Image
             src={BackgrondImage}
             alt="leecommit background"
@@ -21,12 +22,10 @@ export default function HomePage() {
             priority
             placeholder="blur"
           />
-        </BgWrapper>
+        </ImageWrap>
       </Background>
       <ContentsWrap>
-        <BrandTitle></BrandTitle>
-        <Contents></Contents>
-        <BrandPhilosophySection />
+        <BrandStorySection />
       </ContentsWrap>
     </PageContainer>
   );
@@ -39,34 +38,49 @@ const PageContainer = styled.main`
 const ContentsWrap = styled.div`
   position: relative;
   width: 100%;
-  padding: 70px 0 0;
-  margin-top: -100vh;
+  // margin-top: -100vh;
 `;
 
-const BrandTitle = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  color: #fff;
-`;
+// const BrandTitle = styled.div`
+//   width: 100%;
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+// `;
 
-const Contents = styled.div`
-  width: 100%;
-  height: 200vh;
-  background-color: #fff;
-  border-radius: 48px 48px 0 0;
-`;
+// const Contents = styled.div`
+//   width: 100%;
+//   height: 200vh;
+//   background-color: #fff;
+//   border-radius: 48px 48px 0 0;
+// `;
 
 const Background = styled.div`
   position: sticky;
   top: 0;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 `;
-const BgWrapper = styled.div`
+
+const TitleCard = styled.div`
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  background-color: #fff;
+  border: solid 3px #000;
+  margin: 180px 16px 0 16px;
+  font-size: 20px;
+  font-family: "DosGothic";
+  font-weight: 700;
+
+  @media (min-width: 768px) {
+    margin: 140px 0 0 0;
+  }
+`;
+
+const ImageWrap = styled.div`
   position: absolute;
   inset: 0;
   z-index: -1;

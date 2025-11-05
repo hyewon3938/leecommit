@@ -6,6 +6,14 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+
+@font-face {
+    font-family: 'DosGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSGothic.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
   html, body {
     padding: 0;
     margin: 0;
