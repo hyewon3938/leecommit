@@ -49,21 +49,27 @@ const Background = styled.div`
   overflow: hidden;
   display: flex;
   justify-content: center;
+  padding: 130px 0 0 0;
+  @media (min-width: 768px) {
+    padding: 96px 0 0 0;
+  }
 `;
 
 const TitleCard = styled.div`
   width: fit-content;
   height: fit-content;
-  padding: 20px;
+  padding: 12px;
   background-color: #fff;
   border: solid 3px #000;
-  margin: 180px 16px 0 16px;
-  font-size: 20px;
+  margin: 0 16px 0 16px;
+  font-size: 16px;
   font-family: "DosGothic";
   font-weight: 700;
 
   @media (min-width: 768px) {
-    margin: 140px 0 0 0;
+    margin: 0 0 0 0;
+    font-size: 20px;
+    padding: 20px;
   }
 `;
 
