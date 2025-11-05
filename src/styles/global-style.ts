@@ -33,8 +33,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   section {
-  scroll-margin-top: 80px; /* 헤더 높이 만큼 여유 */
-  } 
+    scroll-margin-top: 96px;
+
+    @media (min-width: 768px) {
+      scroll-margin-top: 70px;
+    }
+  }
 
   button {
     font: inherit;

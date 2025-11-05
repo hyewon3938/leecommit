@@ -7,13 +7,6 @@ export const scrollToSection = (
   const el = document.getElementById(id);
   if (!el) return;
 
-  const headerOffset = 80; // 고정 헤더 높이만큼 여유
-  const rect = el.getBoundingClientRect();
-  const scrollTop = window.scrollY || window.pageYOffset;
-  const targetY = rect.top + scrollTop - headerOffset;
-
-  window.scrollTo({
-    top: targetY,
-    behavior: "smooth",
-  });
+  // 오프셋 계산 없이, 진짜 그 섹션의 top으로만 이동
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
