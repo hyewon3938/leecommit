@@ -6,12 +6,8 @@ const Header = () => {
   const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
 
   const scrollToTop = () => {
-    const html = document.querySelector("html");
-    html?.style.setProperty("scroll-behavior", "auto");
-    window.scrollTo({ top: 0 });
-    setTimeout(() => {
-      html?.style.setProperty("scroll-behavior", "smooth");
-    }, 200);
+    window.scrollTo({ top: 0, behavior: "auto" });
+    document.body.getBoundingClientRect();
     // window.scrollTo({ top: 0, behavior: "auto" });
   };
 
