@@ -4,10 +4,13 @@ import Image from "next/image";
 
 const Header = () => {
   const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <Wrap>
-      <TopRow>
+      <TopRow onClick={scrollToTop}>
         <Image src={Logo} alt="leecommit-logo" height={30} />
       </TopRow>
 
@@ -50,7 +53,7 @@ const Wrap = styled.header`
   }
 `;
 
-const TopRow = styled.div`
+const TopRow = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
