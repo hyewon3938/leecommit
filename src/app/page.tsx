@@ -1,15 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
 import BrandPhilosophySection from "@/sections/BrandPhilosophy";
-import BackgrondImage from "@/assets/images/background_product.jpeg";
+import BackgrondImage from "@/assets/images/background_product.webp";
 
 export default function HomePage() {
   return (
     <PageContainer>
       <Header />
-      <Background />
+      <Background>
+        <BgWrapper>
+          <Image
+            src={BackgrondImage}
+            alt="leecommit background"
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+            priority
+            placeholder="blur"
+          />
+        </BgWrapper>
+      </Background>
       <ContentsWrap>
         <BrandTitle></BrandTitle>
         <Contents></Contents>
@@ -46,10 +59,15 @@ const Contents = styled.div`
   background-color: #fff;
   border-radius: 48px 48px 0 0;
 `;
+
 const Background = styled.div`
   position: sticky;
   top: 0;
-  width: 100%;
   height: 100vh;
-  background: url(${BackgrondImage.src}) center / cover no-repeat;
+  overflow: hidden;
+`;
+const BgWrapper = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 `;
