@@ -3,12 +3,15 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
-import AboutSection from "@/sections/About/AboutSection";
 import BackgrondImage from "@/assets/images/background_product.webp";
+import AboutSection from "@/sections/About";
+import CollectionSection from "@/sections/Collection";
+import SpaceSection from "@/sections/Space";
+import ContactSection from "@/sections/Contact";
 
 export default function HomePage() {
   return (
-    <PageContainer>
+    <>
       <Header />
       <Background>
         <TitleCard>*~ 즐거운 독서의 시작 ~*</TitleCard>
@@ -26,14 +29,13 @@ export default function HomePage() {
       </Background>
       <ContentsWrap>
         <AboutSection />
+        <CollectionSection />
+        <SpaceSection />
+        <ContactSection />
       </ContentsWrap>
-    </PageContainer>
+    </>
   );
 }
-
-const PageContainer = styled.main`
-  position: relative;
-`;
 
 const ContentsWrap = styled.div`
   position: relative;

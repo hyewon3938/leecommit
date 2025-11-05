@@ -15,10 +15,10 @@ const Header = () => {
         <NavItem href={storeUrl} target="_blank" rel="noreferrer">
           Shop
         </NavItem>
-        <NavItem>About</NavItem>
-        <NavItem>Collection</NavItem>
-        <NavItem>Space</NavItem>
-        <NavItem>Contact</NavItem>
+        <NavItem href="#about">About</NavItem>
+        <NavItem href="#collection">Collection</NavItem>
+        <NavItem href="#space">Space</NavItem>
+        <NavItem href="#contact">Contact</NavItem>
       </Nav>
     </Wrap>
   );

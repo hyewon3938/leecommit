@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const AboutSection = () => {
-  return <Wrap id="about">About</Wrap>;
+const CollectionSection = () => {
+  return <Wrap id="collection">collection</Wrap>;
 };
 
-export default AboutSection;
+export default CollectionSection;
 
 const Wrap = styled.div`
   display: flex;
