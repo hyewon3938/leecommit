@@ -23,6 +23,13 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
+  @supports (-webkit-overflow-scrolling: touch) {
+  /* iOS 기반이거나 인앱 브라우저에선 override */
+  html {
+    scroll-behavior: auto;
+  }
+}
+
   body {
     min-height: 100vh;
   }
@@ -34,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
 
   section {
   scroll-margin-top: 80px; /* 헤더 높이 만큼 여유 */
-}
+  } 
 
   button {
     font: inherit;
