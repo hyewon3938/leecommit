@@ -11,6 +11,12 @@ const Header = () => {
     // window.scrollTo({ top: 0, behavior: "auto" });
   };
 
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <Wrap>
       <TopRow>
@@ -26,10 +32,42 @@ const Header = () => {
         <NavItem href={storeUrl} target="_blank" rel="noreferrer">
           Shop
         </NavItem>
-        <NavItem href="#about">About</NavItem>
-        <NavItem href="#collection">Collection</NavItem>
-        <NavItem href="#space">Space</NavItem>
-        <NavItem href="#contact">Contact</NavItem>
+        <NavItem
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("about");
+          }}
+        >
+          About
+        </NavItem>
+        <NavItem
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("collection");
+          }}
+        >
+          Collection
+        </NavItem>
+        <NavItem
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("space");
+          }}
+        >
+          Space
+        </NavItem>
+        <NavItem
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("contact");
+          }}
+        >
+          Contact
+        </NavItem>
       </Nav>
     </Wrap>
   );

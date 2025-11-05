@@ -20,15 +20,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Pretendard Variable', Pretendard, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background-color: ${({ theme }) => theme.color.background.page};
     color: ${({ theme }) => theme.color.text.primary};
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
   }
-
-  @supports (-webkit-overflow-scrolling: touch) {
-  /* iOS 기반이거나 인앱 브라우저에선 override */
-  html {
-    scroll-behavior: auto;
-  }
-}
 
   body {
     min-height: 100vh;
