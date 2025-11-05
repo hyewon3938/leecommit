@@ -71,7 +71,7 @@ const Nav = styled.nav`
   font-size: 14px;
 `;
 
-const NavItem = styled.div`
+const NavItem = styled.a`
   border: none;
   background: none;
   padding: 0;
