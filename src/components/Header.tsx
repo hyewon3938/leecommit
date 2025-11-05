@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Logo from "@/assets/icons/horizontal_logo.png";
 import Image from "next/image";
+import { scrollToSection } from "../lib/helpers";
 
 const Header = () => {
   const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
@@ -8,25 +9,6 @@ const Header = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "auto" });
     document.body.getBoundingClientRect();
-    // window.scrollTo({ top: 0, behavior: "auto" });
-  };
-
-  const scrollToSection = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    id: string
-  ) => {
-    e.preventDefault();
-
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    // 첫 스크롤
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    // 혹시 첫 스크롤이 씹힐 경우 대비 (인앱 대응)
-    setTimeout(() => {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 50);
   };
 
   return (
