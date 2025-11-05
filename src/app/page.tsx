@@ -1,36 +1,55 @@
 "use client";
 
 import styled from "styled-components";
-import LogoIcon from "@/assets/icons/vertical_logo.svg";
+import Header from "@/components/Header";
+import BrandPhilosophySection from "@/sections/BrandPhilosophy";
+import BackgrondImage from "@/assets/images/background_product.jpeg";
 
 export default function HomePage() {
-  const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
-
   return (
     <PageContainer>
-      <Title>즐거운 독서의 시작</Title>
-      <a href={storeUrl} target="_blank" rel="noreferrer">
-        <LogoIcon width={280} />
-      </a>
+      <Header />
+      <Background />
+      <ContentsWrap>
+        <BrandTitle></BrandTitle>
+        <Contents></Contents>
+        <BrandPhilosophySection />
+      </ContentsWrap>
     </PageContainer>
   );
 }
 
 const PageContainer = styled.main`
+  position: relative;
+`;
+
+const ContentsWrap = styled.div`
+  position: relative;
+  width: 100%;
+  padding: 70px 0 0;
+  margin-top: -100vh;
+`;
+
+const BrandTitle = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  img {
-    width: 280px;
-  }
+  font-size: 50px;
+  color: #fff;
 `;
 
-const Title = styled.h1`
+const Contents = styled.div`
   width: 100%;
-  text-align: center;
-  font-size: 50px;
-  //border: solid 1px red;
+  height: 200vh;
+  background-color: #fff;
+  border-radius: 48px 48px 0 0;
+`;
+const Background = styled.div`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: url(${BackgrondImage.src}) center / cover no-repeat;
 `;
