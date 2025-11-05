@@ -1,21 +1,25 @@
 import styled from "styled-components";
-import LogoIcon from "@/assets/icons/vertical_logo.svg";
+import Logo from "@/assets/icons/horizontal_logo.png";
 import Image from "next/image";
-
-import HorizontalLogo from "@/assets/icons/horizontal_logo.png";
-import Navigation from "@/components/Navigation";
 
 const Header = () => {
   const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
 
   return (
     <Wrap>
-      {/* <a href={storeUrl} target="_blank" rel="noreferrer">
-        <LogoIcon width={280} />
-      </a> */}
-      <LogoIcon height={90} />
-      {/* <Image src={HorizontalLogo} alt="leecommit logo" height={40} /> */}
-      <Navigation />
+      <TopRow>
+        <Image src={Logo} alt="leecommit-logo" height={30} />
+      </TopRow>
+
+      <Nav>
+        <NavItem href={storeUrl} target="_blank" rel="noreferrer">
+          Shop
+        </NavItem>
+        <NavItem>About</NavItem>
+        <NavItem>Collection</NavItem>
+        <NavItem>Space</NavItem>
+        <NavItem>Contact</NavItem>
+      </Nav>
     </Wrap>
   );
 };
@@ -24,12 +28,57 @@ export default Header;
 
 const Wrap = styled.header`
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  row-gap: 16px;
   width: 100%;
-  height: 70px;
+  padding: 16px 16px;
   background-color: #fff;
-  padding: 0 20px 0 0;
-  z-index: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 10;
+
+  /* 데스크탑에서는 기존처럼 한 줄로 정렬하고 싶으면 이렇게 */
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 16px;
+  }
+`;
+
+const TopRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  font-size: 14px;
+`;
+
+const NavItem = styled.a`
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+
+  /* 필요하면 */
+  /* text-transform: uppercase; */
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
