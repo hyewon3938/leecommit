@@ -6,7 +6,7 @@ const CollectionSection = () => {
 
 export default CollectionSection;
 
-const Wrap = styled.div`
+const Wrap = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;

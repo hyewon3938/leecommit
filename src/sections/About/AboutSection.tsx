@@ -6,7 +6,7 @@ const AboutSection = () => {
 
 export default AboutSection;
 
-const Wrap = styled.div`
+const Wrap = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;

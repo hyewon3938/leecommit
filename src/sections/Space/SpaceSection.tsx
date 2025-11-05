@@ -6,7 +6,7 @@ const SpaceSection = () => {
 
 export default SpaceSection;
 
-const Wrap = styled.div`
+const Wrap = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
