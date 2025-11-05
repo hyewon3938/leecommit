@@ -10,8 +10,13 @@ const Header = () => {
 
   return (
     <Wrap>
-      <TopRow onClick={scrollToTop}>
-        <Image src={Logo} alt="leecommit-logo" height={30} />
+      <TopRow>
+        <Image
+          src={Logo}
+          alt="leecommit-logo"
+          height={30}
+          onClick={scrollToTop}
+        />
       </TopRow>
 
       <Nav>
