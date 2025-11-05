@@ -32,6 +32,10 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  section {
+  scroll-margin-top: 80px; /* 헤더 높이 만큼 여유 */
+}
+
   button {
     font: inherit;
   }
