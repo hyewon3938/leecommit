@@ -33,8 +33,8 @@ export default function HomePage() {
         <CollectionSection />
         <SpaceSection />
         <ContactSection />
+        <Footer />
       </ContentsWrap>
-      <Footer />
     </>
   );
 }
