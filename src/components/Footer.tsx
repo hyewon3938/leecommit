@@ -80,13 +80,13 @@ const FooterWrapper = styled.footer`
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   padding: 40px 20px 32px;
   background-color: #fff;
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 32px 16px 24px;
   }
 `;
 
 const FooterInner = styled.div`
-  max-width: 1120px;
+  max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 0 auto;
   display: flex;
   gap: 32px;
@@ -96,7 +96,7 @@ const FooterInner = styled.div`
   line-height: 1.4;
   color: #555;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
     gap: 18px;
   }
@@ -124,7 +124,7 @@ const SocialBlock = styled(FooterBlock)`
   flex: 0.9;
   text-align: right;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     text-align: left;
   }
 `;
@@ -171,13 +171,13 @@ const SocialLink = styled.a`
 `;
 
 const CopyRightRow = styled.div`
-  max-width: 1120px;
+  max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 24px auto 0;
   font-size: 12px;
   color: #999;
   text-align: right;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     text-align: left;
     margin-top: 16px;
   }

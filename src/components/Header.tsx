@@ -50,17 +50,17 @@ const Wrap = styled.header`
 `;
 
 const Inner = styled.div`
-  max-width: 1120px;
+  max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  padding: 0 16px;
+  padding: 0 ${({ theme }) => theme.layout.gutter};
 
   /* 모바일 전용 스타일 */
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
     justify-content: center;
     row-gap: 16px;
@@ -74,7 +74,7 @@ const TopRow = styled.a`
   align-items: center;
   justify-content: flex-start;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     justify-content: center;
   }
 `;

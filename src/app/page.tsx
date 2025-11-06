@@ -47,7 +47,7 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   padding: 96px 0 0 0;
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 130px 0 0 0;
   }
 `;
@@ -63,7 +63,7 @@ const TitleCard = styled.div`
   font-size: 20px;
   padding: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     margin: 0 16px 0 16px;
     font-size: 16px;
     padding: 12px;
@@ -79,11 +79,11 @@ const ImageWrap = styled.div`
 const ContentsWrap = styled.div`
   position: relative;
   width: 100%;
-  max-width: 1120px;
+  max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 0 auto;
   border-radius: 36px 36px 0 0;
   overflow: hidden;
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     border-radius: 24px 24px 0 0;
   }
 `;
