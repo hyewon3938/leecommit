@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Pretendard Variable', Pretendard, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background-color: ${({ theme }) => theme.color.background.page};
     color: ${({ theme }) => theme.color.text.primary};
-    /* scroll-behavior: smooth; */
+    scroll-behavior: smooth;
   }
 
   body {
@@ -34,7 +34,6 @@ const GlobalStyle = createGlobalStyle`
 
   section {
     scroll-margin-top: 96px;
-
     @media (min-width: 768px) {
       scroll-margin-top: 70px;
     }

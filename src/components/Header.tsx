@@ -26,7 +26,12 @@ const Header = () => {
         <NavItem href={storeUrl} target="_blank" rel="noreferrer">
           Shop
         </NavItem>
-        <NavItem href="#" onClick={(e) => scrollToSection(e, "about")}>
+        <NavItem href="#about">About</NavItem>
+        <NavItem href="#collection">Collection</NavItem>
+        <NavItem href="#space">Space</NavItem>
+        <NavItem href="#contact">Contact</NavItem>
+
+        {/* <NavItem href="#" onClick={(e) => scrollToSection(e, "about")}>
           About
         </NavItem>
         <NavItem href="#" onClick={(e) => scrollToSection(e, "collection")}>
@@ -37,7 +42,7 @@ const Header = () => {
         </NavItem>
         <NavItem href="#" onClick={(e) => scrollToSection(e, "contact")}>
           Contact
-        </NavItem>
+        </NavItem> */}
       </Nav>
     </Wrap>
   );
