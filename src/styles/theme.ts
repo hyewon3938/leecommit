@@ -1,6 +1,6 @@
 export const theme = {
   layout: {
-    maxWidth: "1120px",
+    maxWidth: "unset",
     gutter: "16px",
   },
   breakpoints: {

@@ -78,12 +78,17 @@ const ImageWrap = styled.div`
 
 const ContentsWrap = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
   width: 100%;
   max-width: ${({ theme }) => theme.layout.maxWidth};
-  margin: 0 auto;
-  border-radius: 36px 36px 0 0;
-  overflow: hidden;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  background-color: #fff;
+  // border-radius: 36px 36px 0 0;
+  //overflow: hidden;
+  /* @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     border-radius: 24px 24px 0 0;
-  }
+  } */
 `;
