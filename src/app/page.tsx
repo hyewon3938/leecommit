@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import BackgrondImage from "@/assets/images/background_product.webp";
 import AboutSection from "@/sections/About";
 import CollectionSection from "@/sections/Collection";
@@ -33,14 +34,10 @@ export default function HomePage() {
         <SpaceSection />
         <ContactSection />
       </ContentsWrap>
+      <Footer />
     </>
   );
 }
-
-const ContentsWrap = styled.div`
-  position: relative;
-  width: 100%;
-`;
 
 const Background = styled.div`
   position: sticky;
@@ -49,27 +46,27 @@ const Background = styled.div`
   overflow: hidden;
   display: flex;
   justify-content: center;
-  padding: 130px 0 0 0;
-  @media (min-width: 768px) {
-    padding: 96px 0 0 0;
+  padding: 96px 0 0 0;
+  @media (max-width: 768px) {
+    padding: 130px 0 0 0;
   }
 `;
 
 const TitleCard = styled.div`
   width: fit-content;
   height: fit-content;
-  padding: 12px;
   background-color: #fff;
   border: solid 3px #000;
-  margin: 0 16px 0 16px;
-  font-size: 16px;
   font-family: "DosGothic";
   font-weight: 700;
+  margin: 0 0 0 0;
+  font-size: 20px;
+  padding: 20px;
 
-  @media (min-width: 768px) {
-    margin: 0 0 0 0;
-    font-size: 20px;
-    padding: 20px;
+  @media (max-width: 768px) {
+    margin: 0 16px 0 16px;
+    font-size: 16px;
+    padding: 12px;
   }
 `;
 
@@ -77,4 +74,16 @@ const ImageWrap = styled.div`
   position: absolute;
   inset: 0;
   z-index: -1;
+`;
+
+const ContentsWrap = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  border-radius: 36px 36px 0 0;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    border-radius: 24px 24px 0 0;
+  }
 `;

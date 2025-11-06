@@ -33,9 +33,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   section {
-    scroll-margin-top: 96px;
-    @media (min-width: 768px) {
-      scroll-margin-top: 70px;
+    scroll-margin-top: 70px;
+    @media (max-width: 768px) {
+
+      scroll-margin-top: 96px;
+
     }
   }
 
