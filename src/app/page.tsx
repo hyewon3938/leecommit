@@ -84,7 +84,7 @@ const ContentsWrap = styled.div`
   justify-content: center;
   gap: 40px;
   width: 100%;
-  max-width: ${({ theme }) => theme.layout.maxWidth};
+  //max-width: ${({ theme }) => theme.layout.maxWidth};
   background-color: #fff;
   // border-radius: 36px 36px 0 0;
   //overflow: hidden;

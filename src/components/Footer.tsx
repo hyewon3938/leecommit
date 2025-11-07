@@ -86,7 +86,7 @@ const FooterWrapper = styled.footer`
 `;
 
 const FooterInner = styled.div`
-  max-width: ${({ theme }) => theme.layout.maxWidth};
+  // max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 0 auto;
   display: flex;
   gap: 32px;
@@ -171,7 +171,7 @@ const SocialLink = styled.a`
 `;
 
 const CopyRightRow = styled.div`
-  max-width: ${({ theme }) => theme.layout.maxWidth};
+  // max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 24px auto 0;
   font-size: 12px;
   color: #999;

@@ -50,7 +50,7 @@ const Wrap = styled.header`
 `;
 
 const Inner = styled.div`
-  max-width: ${({ theme }) => theme.layout.maxWidth};
+  // max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 0 auto;
   display: flex;
   flex-direction: row;
