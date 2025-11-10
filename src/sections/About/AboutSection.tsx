@@ -46,6 +46,7 @@ const Wrap = styled.section`
     padding: 20px;
   }
 `;
+
 const Title = styled.h1`
   font-family: "DosGothic";
 `;
@@ -54,9 +55,12 @@ const ContentsWrap = styled.div`
   display: flex;
   align-items: flex-end;
   gap: 20px;
+  max-width: ${({ theme }) => theme.layout.maxWidth};
+
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
     flex-wrap: wrap;
     align-items: center;
+    max-width: unset;
   }
 `;
 
