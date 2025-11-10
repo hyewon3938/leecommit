@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
-import Carousel from "@/components/Carousel.tsx";
-import { bookmarkProducts } from "@/data/products.ts";
+import Carousel from "@/components/Carousel";
+import { bookmarkProducts } from "@/data/products";
 
 type Product = {
   id: string;
