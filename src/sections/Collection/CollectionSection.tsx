@@ -1,43 +1,50 @@
 import styled from "styled-components";
 import Image from "next/image";
-import apple01 from "@/assets/images/collection/apple01.jpg";
-import apple02 from "@/assets/images/collection/apple02.jpg";
-import greenTree01 from "@/assets/images/collection/greenTree01.jpg";
-import greenTree02 from "@/assets/images/collection/greenTree02.jpg";
-import stb01 from "@/assets/images/collection/stb01.jpeg";
-import stb02 from "@/assets/images/collection/stb02.jpeg";
-import bird01 from "@/assets/images/collection/bird01.jpeg";
-import bird02 from "@/assets/images/collection/bird02.jpeg";
-import plant01 from "@/assets/images/collection/plant01.jpeg";
-import plant02 from "@/assets/images/collection/plant02.jpeg";
-import plant03 from "@/assets/images/collection/plant03.jpeg";
+import Carousel from "@/components/Carousel.tsx";
+import { bookmarkProducts } from "@/data/products.ts";
+
+type Product = {
+  id: string;
+  name: string;
+  imageUrl: string[];
+  link?: string;
+};
 
 const CollectionSection = () => {
+  const typedProducts = bookmarkProducts as Product[];
+
   return (
     <Wrap id="collection">
       <Title>Collection</Title>
-
-      <ItemWrap>
-        <Image src={greenTree01} alt="prd1" />
-        <Image src={greenTree02} alt="prd2" />
-      </ItemWrap>
-      <ItemWrap>
-        <Image src={stb01} alt="prd1" />
-        <Image src={stb02} alt="prd2" />
-      </ItemWrap>
-      <ItemWrap>
-        <Image src={apple01} alt="prd1" />
-        <Image src={apple02} alt="prd2" />
-      </ItemWrap>
-      <ItemWrap>
-        <Image src={bird02} alt="prd2" />
-        <Image src={bird01} alt="prd1" />
-      </ItemWrap>
-      <SingleImageWrap>
-        <Image src={plant01} alt="prd1" />
-        <Image src={plant02} alt="prd1" />
-        <Image src={plant03} alt="prd1" />
-      </SingleImageWrap>
+      <CardsWrap>
+        <Carousel
+          items={typedProducts}
+          getKey={(product) => product.id}
+          // swiperOptions는 필요하면 여기서만 살짝 덮어쓰기
+          // swiperOptions={{ slidesPerView: 1.2 }}
+          renderItem={(product) => (
+            <Card
+              href={product.link || "#"}
+              target={product.link ? "_blank" : undefined}
+              rel={product.link ? "noopener noreferrer" : undefined}
+            >
+              <ImageWrap>
+                <Image
+                  src={product.imageUrl[0]}
+                  alt={product.name}
+                  fill
+                  sizes="(max-width: 768px) 80vw, (max-width: 1200px) 30vw, 320px"
+                  style={{ objectFit: "cover" }}
+                />
+              </ImageWrap>
+              <Info>
+                <Name>{product.name}</Name>
+                {product.price && <Price>{product.price}</Price>}
+              </Info>
+            </Card>
+          )}
+        />
+      </CardsWrap>
     </Wrap>
   );
 };
@@ -62,21 +69,68 @@ const Title = styled.h1`
   font-family: "DosGothic";
 `;
 
-const ItemWrap = styled.div`
-  display: flex;
-  width: 100%;
-  > img {
-    width: 50%;
-    height: auto;
+// const ItemWrap = styled.div`
+//   display: flex;
+//   width: 100%;
+//   > img {
+//     width: 50%;
+//     height: auto;
+//   }
+// `;
+
+// const SingleImageWrap = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   > img {
+//     width: inherit;
+//     height: auto;
+//   }
+// `;
+
+const CardsWrap = styled.div`
+  max-width: 1040px;
+  margin: 0 auto;
+`;
+
+const Card = styled.a`
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out,
+    border-color 0.15s ease-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.12);
   }
 `;
 
-const SingleImageWrap = styled.div`
-  display: flex;
-  flex-direction: column;
+const ImageWrap = styled.div`
+  position: relative;
   width: 100%;
-  > img {
-    width: inherit;
-    height: auto;
-  }
+  padding-top: 72%;
+  background: #f5f5f5;
+`;
+
+const Info = styled.div`
+  padding: 16px 16px 18px;
+`;
+
+const Name = styled.div`
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+`;
+
+const Price = styled.div`
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
 `;
