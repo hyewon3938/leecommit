@@ -39,7 +39,7 @@ const Wrap = styled.section`
   padding: 80px 20px 40px;
 
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    padding: 20px;
+    padding: 16px;
   }
 `;
 
@@ -64,16 +64,17 @@ const SpaceItemWrap = styled.li`
   display: flex;
   flex-direction: column;
   width: 100%;
+  font-size: 16px;
   > img {
     width: inherit;
     height: auto;
   }
   > p {
     font-weight: 600;
-    font-size: 16px;
     margin: 12px 0 2px 0;
   }
-  > address {
-    font-size: 16px;
+
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
+    font-size: 14px;
   }
 `;

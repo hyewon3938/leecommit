@@ -43,7 +43,7 @@ const Wrap = styled.section`
   background-color: #fff;
   padding: 80px 20px 40px;
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    padding: 20px;
+    padding: 16px;
   }
 `;
 

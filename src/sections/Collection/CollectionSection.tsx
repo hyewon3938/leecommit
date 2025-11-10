@@ -12,7 +12,7 @@ type Product = {
 
 const CollectionSection = () => {
   const typedProducts = bookmarkProducts as Product[];
-
+  console.log(typedProducts);
   return (
     <Wrap id="collection">
       <Title>Collection</Title>
@@ -29,18 +29,21 @@ const CollectionSection = () => {
               rel={product.link ? "noopener noreferrer" : undefined}
             >
               <ImageWrap>
-                <Image
-                  src={product.imageUrl[0]}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 768px) 80vw, (max-width: 1200px) 30vw, 320px"
-                  style={{ objectFit: "cover" }}
-                />
+                {product.imageUrl.map((url, i) => (
+                  <Half key={i}>
+                    <Image
+                      src={url}
+                      alt={`${product.name} ${i + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 80vw, (max-width: 1200px) 30vw, 320px"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </Half>
+                ))}
+                <Info>
+                  <Name>{product.name}</Name>
+                </Info>
               </ImageWrap>
-              <Info>
-                <Name>{product.name}</Name>
-                {product.price && <Price>{product.price}</Price>}
-              </Info>
             </Card>
           )}
         />
@@ -61,7 +64,7 @@ const Wrap = styled.section`
   padding: 80px 20px 40px;
   gap: 20px;
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    padding: 20px;
+    padding: 16px;
     gap: 10px;
   }
 `;
@@ -69,43 +72,29 @@ const Title = styled.h1`
   font-family: "DosGothic";
 `;
 
-// const ItemWrap = styled.div`
-//   display: flex;
-//   width: 100%;
-//   > img {
-//     width: 50%;
-//     height: auto;
-//   }
-// `;
-
-// const SingleImageWrap = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-//   > img {
-//     width: inherit;
-//     height: auto;
-//   }
-// `;
-
 const CardsWrap = styled.div`
-  max-width: 1040px;
-  margin: 0 auto;
+  width: 100%;
 `;
 
 const Card = styled.a`
   display: block;
   text-decoration: none;
   color: inherit;
+  padding: 0 0 24px 0;
 
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background: #ffffff;
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
+    padding: 0 0 16px 0;
+  }
+`;
 
+const ImageWrap = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  aspect-ratio: 1 / 0.72;
+  background: #f5f5f5;
   transition: transform 0.15s ease-out, box-shadow 0.15s ease-out,
     border-color 0.15s ease-out;
-
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
@@ -113,24 +102,23 @@ const Card = styled.a`
   }
 `;
 
-const ImageWrap = styled.div`
+const Half = styled.div`
+  flex: 1;
   position: relative;
-  width: 100%;
-  padding-top: 72%;
-  background: #f5f5f5;
 `;
 
 const Info = styled.div`
-  padding: 16px 16px 18px;
+  position: absolute;
+  bottom: 0;
 `;
 
 const Name = styled.div`
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 4px;
-`;
-
-const Price = styled.div`
+  color: #fff;
+  background-color: #000;
+  padding: 12px 16px;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.7);
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
 `;

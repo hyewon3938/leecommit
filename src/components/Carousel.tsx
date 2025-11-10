@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -26,22 +26,25 @@ const Carousel = <T,>({
   className,
 }: CarouselProps<T>) => {
   const defaultOptions: SwiperOptions = {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Autoplay],
     spaceBetween: 16,
-    slidesPerView: 1.1,
+    slidesPerView: 1,
     centeredSlides: false,
-    navigation: true,
+    // navigation: true,
     pagination: {
       clickable: true,
     },
+    loop: true,
+    autoplay: { delay: 3000 },
+    speed: 600,
     breakpoints: {
-      640: {
-        slidesPerView: 2.1,
-        spaceBetween: 20,
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 16,
       },
       1024: {
-        slidesPerView: 3.1,
-        spaceBetween: 24,
+        slidesPerView: 3,
+        spaceBetween: 28,
       },
     },
   };
