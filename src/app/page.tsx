@@ -4,7 +4,8 @@ import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BackgrondImage from "@/assets/images/background_product.webp";
+import BackgrondImage from "@/assets/images/background.webp";
+import MainImage from "@/assets/images/main_product.webp";
 import AboutSection from "@/sections/About";
 import CollectionSection from "@/sections/Collection";
 import SpaceSection from "@/sections/Space";
@@ -14,20 +15,20 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <Background>
-        <TitleCard>*~ 즐거운 독서의 시작 ~*</TitleCard>
-        <ImageWrap>
-          <Image
-            src={BackgrondImage}
-            alt="leecommit background"
-            fill
-            sizes="100vw"
-            style={{ objectFit: "cover" }}
-            priority
-            placeholder="blur"
-          />
-        </ImageWrap>
-      </Background>
+      <Main>
+        <MainContentsWrap>
+          <TitleCard>*~ 즐거운 독서의 시작 ~*</TitleCard>
+          <Image src={MainImage} alt="main image" />
+        </MainContentsWrap>
+        <Image
+          src={BackgrondImage}
+          alt="leecommit background"
+          fill
+          style={{ objectFit: "cover" }}
+          priority
+          placeholder="blur"
+        />
+      </Main>
       <ContentsWrap>
         <AboutSection />
         <CollectionSection />
@@ -52,7 +53,46 @@ const Background = styled.div`
   }
 `;
 
+const ContentsWrap = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  // margin: -100vh 0 0 0;
+`;
+
+const Main = styled.div`
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+`;
+
+const MainContentsWrap = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > img {
+    width: 500px;
+    height: fit-content;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    > img {
+      width: 80%;
+      height: fit-content;
+    }
+  }
+`;
+
 const TitleCard = styled.div`
+  position: absolute;
+  top: 200px;
   width: fit-content;
   height: fit-content;
   background-color: #fff;
@@ -67,28 +107,6 @@ const TitleCard = styled.div`
     margin: 0 16px 0 16px;
     font-size: 16px;
     padding: 12px;
+    top: 200px;
   }
-`;
-
-const ImageWrap = styled.div`
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-`;
-
-const ContentsWrap = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  width: 100%;
-  //max-width: ${({ theme }) => theme.layout.maxWidth};
-  background-color: #fff;
-  // border-radius: 36px 36px 0 0;
-  //overflow: hidden;
-  /* @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    border-radius: 24px 24px 0 0;
-  } */
 `;

@@ -93,7 +93,7 @@ const FooterInner = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   font-size: 13px;
-  line-height: 1.4;
+  line-height: 1.8;
   color: #555;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
