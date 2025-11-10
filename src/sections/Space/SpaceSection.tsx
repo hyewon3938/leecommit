@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
-import gosanIamge from "@/assets/images/gosan.jpg";
-import nemoneImage from "@/assets/images/nemone.jpg";
+import gosanIamge from "@/assets/images/space_gosan.jpg";
+import nemoneImage from "@/assets/images/space_nemone.jpg";
 
 const SpaceSection = () => {
   return (
