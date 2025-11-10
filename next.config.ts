@@ -6,6 +6,15 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "leecommit-assets.s3.ap-northeast-2.amazonaws.com",
+        pathname: "/**",
+      },
+    ],
+  },
   webpack(config) {
     // 1️⃣ SVG 파일을 React 컴포넌트로 import 가능하게 설정
     config.module.rules.push({
