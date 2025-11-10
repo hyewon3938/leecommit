@@ -39,7 +39,7 @@ const Wrap = styled.section`
   padding: 80px 20px 40px;
 
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    padding: 16px;
+    padding: 24px;
   }
 `;
 
@@ -49,7 +49,7 @@ const ContentWrap = styled.div`
 
 const Title = styled.h1`
   font-family: "DosGothic";
-  margin: 0 0 16px 0;
+  margin: 0 0 40px 0;
 `;
 
 const SpaceList = styled.ul`

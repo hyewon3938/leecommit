@@ -40,18 +40,18 @@ export default function HomePage() {
   );
 }
 
-const Background = styled.div`
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  padding: 96px 0 0 0;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 130px 0 0 0;
-  }
-`;
+// const Background = styled.div`
+//   position: sticky;
+//   top: 0;
+//   height: 100vh;
+//   overflow: hidden;
+//   display: flex;
+//   justify-content: center;
+//   padding: 96px 0 0 0;
+//   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+//     padding: 130px 0 0 0;
+//   }
+// `;
 
 const ContentsWrap = styled.div`
   position: relative;
@@ -60,7 +60,11 @@ const ContentsWrap = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  // margin: -100vh 0 0 0;
+  background-color: #fff;
+  gap: 40px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: 20px;
+  }
 `;
 
 const Main = styled.div`
@@ -74,6 +78,7 @@ const Main = styled.div`
 
 const MainContentsWrap = styled.div`
   position: relative;
+  width: 100%;
   z-index: 1;
   display: flex;
   justify-content: center;

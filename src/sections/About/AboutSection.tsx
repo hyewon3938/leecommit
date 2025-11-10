@@ -1,32 +1,46 @@
 import Image from "next/image";
 import styled from "styled-components";
-import BackgrondImage from "@/assets/images/about.webp";
+import backgrondImage from "@/assets/images/about.webp";
+import squareLogo from "@/assets/icons/square_logo.webp";
 
 const AboutSection = () => {
   return (
     <Wrap id="about">
-      <Title>About leeCommit</Title>
+      <Title>About</Title>
       <ContentsWrap>
         <ImageWrap>
-          <Image src={BackgrondImage} alt="리커밋 끈갈피와 비즈 식물 작품" />
+          <Image src={backgrondImage} alt="leecommit about image" />
         </ImageWrap>
-        <TextWrap>
-          <p>
-            일상이 될 독서 시간이 더 즐거워지길 바랍니다.
-            <br />
-            책을 펼치는 순간, 작지만 기분 좋을 이유 하나가 더해졌으면
-            좋겠습니다.
-          </p>
-          <p>읽는다는 건 결국 이어가는 일이라고 믿습니다.</p>
-          <p>
-            매일 펼치지 않아도, 다시 펼치게 되는 그 마음에 리커밋이 기분 좋은
-            이유가 되고 싶습니다.
-          </p>
-          <p>
-            이제는 끈갈피에 이어 비즈 식물 작품을 함께 선보이며 독서의 즐거움이
-            머무는 공간에도 작은 평화를 더하고 있습니다.
-          </p>
-        </TextWrap>
+        <LogoTextWrap>
+          <LogoWrap>
+            <Image src={squareLogo} alt="leecommit square logo" />
+          </LogoWrap>
+          <TextWrap>
+            <p>
+              리커밋은 책을 읽는 시간이
+              <br /> 일상의 즐거움이 되길 바라는 마음에서 시작되었습니다.
+            </p>
+            {/* <p>
+            책을 펼치는 순간, 작지만 기분 좋은 이유 하나가 더해지길 바랍니다.
+          </p> */}
+            <p>
+              읽는다는 건 결국 이어가는 일이라 믿습니다.
+              <br />
+              매일 펼치지 않아도 다시 펼치게 되는 그 마음에
+              <br /> 리커밋이 이유가 되고 싶습니다.
+            </p>
+            <p>
+              현재는 끈갈피에 이어 비즈 식물 작품을 선보이며,
+              <br /> 독서의 즐거움이 머무는 공간에도 작은 평화를 더하고
+              있습니다.
+            </p>
+            <p>
+              리커밋은 모든 제품을 수작업으로 정성스럽게 제작하며,
+              <br /> 책과 공간 속에 자연스럽게 어우러지는 오브제를 만들어갑니다.
+            </p>
+            <p>책을 읽는 마음, 쉬어가는 순간에 함께할 수 있기를 바랍니다.</p>
+          </TextWrap>
+        </LogoTextWrap>
       </ContentsWrap>
     </Wrap>
   );
@@ -35,6 +49,7 @@ const AboutSection = () => {
 export default AboutSection;
 
 const Wrap = styled.section`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -43,40 +58,81 @@ const Wrap = styled.section`
   background-color: #fff;
   padding: 80px 20px 40px;
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    padding: 16px;
+    padding: 40px 24px;
   }
 `;
 
 const Title = styled.h1`
   font-family: "DosGothic";
+  margin: 0 0 40px 0;
 `;
 
 const ContentsWrap = styled.div`
+  position: relative;
   display: flex;
   align-items: flex-end;
-  gap: 20px;
-  max-width: ${({ theme }) => theme.layout.maxWidth};
-
+  gap: 40px;
+  height: 600px;
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
     flex-wrap: wrap;
     align-items: center;
-    max-width: unset;
+    gap: 20px;
+    height: auto;
   }
 `;
 
 const ImageWrap = styled.div`
-  width: 400px;
+  position: relative;
+  height: 100%;
   > img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
   }
 
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
     width: 100%;
+    height: auto;
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+`;
+
+const LogoTextWrap = styled.div`
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
+  }
+`;
+
+const LogoWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  > img {
+    height: 200px;
+    width: auto;
+  }
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
+    display: none;
   }
 `;
 
 const TextWrap = styled.div`
   word-break: keep-all;
-  line-height: 1.2;
+  line-height: 1.4;
+  > p {
+    margin: 10px 0;
+  }
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
+    font-size: 14px;
+    > p {
+      margin: 10px 0;
+    }
+  }
 `;
