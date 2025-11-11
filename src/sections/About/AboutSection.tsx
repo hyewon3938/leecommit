@@ -115,7 +115,7 @@ const LogoWrap = styled.div`
   align-items: center;
   height: 100%;
   > img {
-    height: 200px;
+    height: 175px;
     width: auto;
   }
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {

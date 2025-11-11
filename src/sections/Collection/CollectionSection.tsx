@@ -101,6 +101,13 @@ const ImageWrap = styled.div`
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
     border-color: rgba(0, 0, 0, 0.12);
   }
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
+    &:hover {
+      transform: unset;
+      box-shadow: unset;
+      border-color: unset;
+    }
+  }
 `;
 
 const Half = styled.div`
