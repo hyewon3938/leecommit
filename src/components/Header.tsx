@@ -2,10 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Image from "next/image";
-
-import Logo from "@/assets/icons/horizontal_logo.png";
-import Logo_white from "@/assets/icons/horizontal_logo_white.png";
+import Logo from "@/assets/icons/logo.svg";
 
 const Header = () => {
   const [isTop, setIsTop] = useState<boolean>(true);
@@ -28,14 +25,8 @@ const Header = () => {
     <Wrap $isTop={isTop}>
       <Inner>
         <TopRow role="button" onClick={refresh} aria-label="Go to home">
-          <Image
-            src={isTop ? Logo_white : Logo}
-            alt="leecommit-logo"
-            height={40}
-            priority
-          />
+          <Logo fill={isTop ? "#fff" : "#000"} />
         </TopRow>
-
         <Nav>
           <NavItem
             $isTop={isTop}
@@ -100,8 +91,8 @@ const TopRow = styled.div`
   align-items: center;
   justify-content: flex-start;
   cursor: pointer;
-  > img {
-    margin: 0 0 -4px 0;
+  svg {
+    height: 38px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
