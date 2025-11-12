@@ -127,7 +127,7 @@ export default function ContactSection() {
       id="contact"
       title="Contact"
       backgroundColor="#f5f6f3"
-      paddingMobile="80px 20px 100px 20px"
+      paddingMobile="80px 30px 100px 30px"
     >
       <Inner>
         <Description>
