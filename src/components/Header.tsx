@@ -17,7 +17,7 @@ const Header = () => {
     <Wrap $isTop={isTop}>
       <Inner>
         <TopRow role="button" onClick={refresh} aria-label="Go to home">
-          <Logo fill={isTop ? "#fff" : "#000"} />
+          <Logo style={{ color: isTop ? "#fff" : "#000" }} />
         </TopRow>
         <Nav>
           <NavItem
