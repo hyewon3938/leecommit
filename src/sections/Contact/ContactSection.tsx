@@ -34,7 +34,7 @@ export default function ContactSection() {
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const PREVIEW = true;
+  const IS_PRODUCTION = process.env.NODE_ENV === "production";
   const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
   const handleChange = (
@@ -86,7 +86,7 @@ export default function ContactSection() {
     setIsSuccess(false);
 
     try {
-      if (PREVIEW) {
+      if (!IS_PRODUCTION) {
         console.log("preview mode");
         await sleep(1200);
       } else {
@@ -205,7 +205,7 @@ export default function ContactSection() {
           )}
 
           <Button type="submit" disabled={isLoading}>
-            {isLoading ? "전송 중입니다..." : "문의 남기기"}
+            문의 남기기
           </Button>
         </Form>
       </Inner>
@@ -307,7 +307,7 @@ const Textarea = styled.textarea`
 `;
 
 const Button = styled.button`
-  align-self: flex-end;
+  align-self: flex-start;
   margin-top: 8px;
   padding: 10px 24px;
   border-radius: 8px;
