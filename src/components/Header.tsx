@@ -1,34 +1,59 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Logo from "@/assets/icons/horizontal_logo.png";
 import Image from "next/image";
 
+import Logo from "@/assets/icons/horizontal_logo.png";
+import Logo_white from "@/assets/icons/horizontal_logo_white.png";
+
 const Header = () => {
+  const [isTop, setIsTop] = useState(true);
   const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
 
+  useEffect(() => {
+    const handleScroll = () => setIsTop(window.scrollY === 0);
+    handleScroll(); // 초기 상태 동기화
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const refresh = () => {
-    window.location.reload();
+    window.location.href = "/";
   };
 
   return (
-    <Wrap>
+    <Wrap isTop={isTop}>
       <Inner>
-        <TopRow>
+        <TopRow role="button" onClick={refresh} aria-label="Go to home">
           <Image
-            src={Logo}
+            src={isTop ? Logo_white : Logo}
             alt="leecommit-logo"
-            height={30}
-            onClick={refresh}
+            height={40}
+            priority
           />
         </TopRow>
 
         <Nav>
-          <NavItem href={storeUrl} target="_blank" rel="noreferrer">
+          <NavItem
+            isTop={isTop}
+            href={storeUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
             Shop
           </NavItem>
-          <NavItem href="#about">About</NavItem>
-          <NavItem href="#collection">Collection</NavItem>
-          <NavItem href="#space">Space</NavItem>
-          <NavItem href="#contact">Contact</NavItem>
+          <NavItem isTop={isTop} href="#about">
+            About
+          </NavItem>
+          <NavItem isTop={isTop} href="#collection">
+            Collection
+          </NavItem>
+          <NavItem isTop={isTop} href="#space">
+            Space
+          </NavItem>
+          <NavItem isTop={isTop} href="#contact">
+            Contact
+          </NavItem>
         </Nav>
       </Inner>
     </Wrap>
@@ -37,19 +62,21 @@ const Header = () => {
 
 export default Header;
 
-const Wrap = styled.header`
+/* ---------------- styled ---------------- */
+
+const Wrap = styled.header<{ isTop: boolean }>`
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0 0 auto 0;
   width: 100%;
-  background-color: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 10;
+  background-color: ${({ isTop }) => (isTop ? "transparent" : "#fff")};
+  border-bottom: ${({ isTop }) =>
+    isTop ? "none" : "1px solid rgba(0,0,0,0.1)"};
+  transition: background-color 0.25s ease, border-color 0.25s ease,
+    border-bottom 0.25s ease;
 `;
 
 const Inner = styled.div`
-  // max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -58,7 +85,6 @@ const Inner = styled.div`
   height: 70px;
   padding: 0 ${({ theme }) => theme.layout.gutter};
 
-  /* 모바일 전용 스타일 */
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
     justify-content: center;
@@ -68,10 +94,15 @@ const Inner = styled.div`
   }
 `;
 
-const TopRow = styled.a`
+/* 클릭 가능한 로고 래퍼: 기존 a 대신 역할 지정 */
+const TopRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
+  > img {
+    margin: 0 0 -4px 0;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     justify-content: center;
@@ -86,14 +117,17 @@ const Nav = styled.nav`
   font-size: 14px;
 `;
 
-const NavItem = styled.a`
+const NavItem = styled.a<{ isTop: boolean }>`
   border: none;
   background: none;
   padding: 0;
   font: inherit;
   cursor: pointer;
+  color: ${({ isTop }) => (isTop ? "#fff" : "#000")};
+  transition: color 0.25s ease, opacity 0.2s ease;
 
   &:hover {
     text-decoration: underline;
+    opacity: 0.8;
   }
 `;
