@@ -27,7 +27,7 @@ const Carousel = <T,>({
 }: CarouselProps<T>) => {
   const defaultOptions: SwiperOptions = {
     modules: [Navigation, Pagination, Autoplay],
-    spaceBetween: 16,
+    spaceBetween: 0,
     slidesPerView: 1,
     centeredSlides: false,
     // navigation: true,
@@ -40,7 +40,7 @@ const Carousel = <T,>({
     breakpoints: {
       768: {
         slidesPerView: 1,
-        spaceBetween: 16,
+        spaceBetween: 0,
       },
       1024: {
         slidesPerView: 3,
