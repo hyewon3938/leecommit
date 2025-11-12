@@ -3,7 +3,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import backgrondImage from "@/assets/images/about.webp";
 import squareLogo from "@/assets/icons/square_logo.webp";
-import Section from "@/sections/Section";
+import Section from "@/components/sections/Section";
 
 const AboutSection = () => {
   return (

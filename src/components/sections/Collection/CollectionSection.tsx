@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import Section from "@/sections/Section";
+import Section from "@/components/sections/Section";
 import Carousel from "@/components/Carousel";
 import { bookmarkProducts } from "@/data/products";
 

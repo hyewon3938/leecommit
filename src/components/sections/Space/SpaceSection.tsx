@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import gosanIamge from "@/assets/images/space_gosan.jpg";
 import nemoneImage from "@/assets/images/space_nemone.jpg";
-import Section from "@/sections/Section";
+import Section from "@/components/sections/Section";
 
 const SpaceSection = () => {
   return (
@@ -58,5 +58,8 @@ const SpaceItemWrap = styled.li`
 
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
     font-size: 13px;
+    > p {
+      margin: 8px 0 2px 0;
+    }
   }
 `;

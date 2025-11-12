@@ -7,10 +7,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackgrondImage from "@/assets/images/background.webp";
 import MainImage from "@/assets/images/main_product.webp";
-import AboutSection from "@/sections/About";
-import CollectionSection from "@/sections/Collection";
-import SpaceSection from "@/sections/Space";
-import ContactSection from "@/sections/Contact";
+import AboutSection from "@/components/sections/About";
+import CollectionSection from "@/components/sections/Collection";
+import SpaceSection from "@/components/sections/Space";
+import ContactSection from "@/components/sections/Contact";
 
 export default function HomePage() {
   return (
@@ -18,8 +18,10 @@ export default function HomePage() {
       <Header />
       <Main>
         <MainContentsWrap>
-          <TitleCard>˚✧₊⁎ 즐거운 독서의 시작 ⁎⁺˳✧༚</TitleCard>
-          <Image src={MainImage} alt="main image" />
+          <ImageWrap>
+            <Image src={MainImage} alt="main image" />
+            <TitleCard>˚✧₊⁎ 즐거운 독서의 시작 ⁎⁺˳✧༚</TitleCard>
+          </ImageWrap>
         </MainContentsWrap>
         <Image
           src={BackgrondImage}
@@ -35,8 +37,8 @@ export default function HomePage() {
         <CollectionSection />
         <SpaceSection />
         <ContactSection />
+        <Footer />
       </ContentsWrap>
-      <Footer />
     </>
   );
 }
@@ -49,10 +51,10 @@ const ContentsWrap = styled.div`
   justify-content: center;
   width: 100%;
   background-color: #fff;
-  gap: 20px;
+  /* gap: 20px;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     gap: 20px;
-  }
+  } */
 `;
 
 const Main = styled.div`
@@ -71,9 +73,18 @@ const MainContentsWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const ImageWrap = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   > img {
     width: 500px;
     height: fit-content;
+    max-height: 80vh;
+    object-fit: contain;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     > img {
@@ -85,14 +96,13 @@ const MainContentsWrap = styled.div`
 
 const TitleCard = styled.div`
   position: absolute;
-  top: 200px;
+  top: 60px;
   width: fit-content;
   height: fit-content;
   background-color: #fff;
   border: solid 3px #000;
   font-family: "DosGothic";
   font-weight: 700;
-  margin: 0 0 0 0;
   font-size: 20px;
   padding: 20px;
 
@@ -100,6 +110,6 @@ const TitleCard = styled.div`
     margin: 0 16px 0 16px;
     font-size: 16px;
     padding: 12px;
-    top: 200px;
+    top: 30px;
   }
 `;
