@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -7,22 +8,24 @@ import Logo from "@/assets/icons/horizontal_logo.png";
 import Logo_white from "@/assets/icons/horizontal_logo_white.png";
 
 const Header = () => {
-  const [isTop, setIsTop] = useState(true);
-  const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
+  const [isTop, setIsTop] = useState<boolean>(true);
+  const storeUrl: string = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
 
   useEffect(() => {
-    const handleScroll = () => setIsTop(window.scrollY === 0);
-    handleScroll(); // 초기 상태 동기화
+    const handleScroll = (): void => {
+      setIsTop(window.scrollY === 0);
+    };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const refresh = () => {
+  const refresh = (): void => {
     window.location.href = "/";
   };
 
   return (
-    <Wrap isTop={isTop}>
+    <Wrap $isTop={isTop}>
       <Inner>
         <TopRow role="button" onClick={refresh} aria-label="Go to home">
           <Image
@@ -35,23 +38,23 @@ const Header = () => {
 
         <Nav>
           <NavItem
-            isTop={isTop}
+            $isTop={isTop}
             href={storeUrl}
             target="_blank"
             rel="noreferrer"
           >
             Shop
           </NavItem>
-          <NavItem isTop={isTop} href="#about">
+          <NavItem $isTop={isTop} href="#about">
             About
           </NavItem>
-          <NavItem isTop={isTop} href="#collection">
+          <NavItem $isTop={isTop} href="#collection">
             Collection
           </NavItem>
-          <NavItem isTop={isTop} href="#space">
+          <NavItem $isTop={isTop} href="#space">
             Space
           </NavItem>
-          <NavItem isTop={isTop} href="#contact">
+          <NavItem $isTop={isTop} href="#contact">
             Contact
           </NavItem>
         </Nav>
@@ -62,14 +65,12 @@ const Header = () => {
 
 export default Header;
 
-/* ---------------- styled ---------------- */
-
-const Wrap = styled.header<{ isTop: boolean }>`
+const Wrap = styled.header<{ $isTop: boolean }>`
   position: fixed;
   inset: 0 0 auto 0;
   width: 100%;
   z-index: 10;
-  background-color: ${({ isTop }) => (isTop ? "transparent" : "#fff")};
+  background-color: ${({ $isTop }) => ($isTop ? "transparent" : "#fff")};
   border-bottom: ${({ isTop }) =>
     isTop ? "none" : "1px solid rgba(0,0,0,0.1)"};
   transition: background-color 0.25s ease, border-color 0.25s ease,
@@ -94,7 +95,6 @@ const Inner = styled.div`
   }
 `;
 
-/* 클릭 가능한 로고 래퍼: 기존 a 대신 역할 지정 */
 const TopRow = styled.div`
   display: flex;
   align-items: center;
@@ -117,13 +117,13 @@ const Nav = styled.nav`
   font-size: 14px;
 `;
 
-const NavItem = styled.a<{ isTop: boolean }>`
+const NavItem = styled.a<{ $isTop: boolean }>`
   border: none;
   background: none;
   padding: 0;
   font: inherit;
   cursor: pointer;
-  color: ${({ isTop }) => (isTop ? "#fff" : "#000")};
+  color: ${({ $isTop }) => ($isTop ? "#fff" : "#000")};
   transition: color 0.25s ease, opacity 0.2s ease;
 
   &:hover {
