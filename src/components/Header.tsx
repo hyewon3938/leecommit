@@ -1,21 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Logo from "@/assets/icons/logo.svg";
+import { useScrollTop } from "@/hooks/useScrollTop";
 
 const Header = () => {
-  const [isTop, setIsTop] = useState<boolean>(true);
   const storeUrl: string = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
-
-  useEffect(() => {
-    const handleScroll = (): void => {
-      setIsTop(window.scrollY === 0);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const isTop = useScrollTop(0); // 0px 이상 스크롤 시 false
 
   const refresh = (): void => {
     window.location.href = "/";

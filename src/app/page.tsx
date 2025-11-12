@@ -83,8 +83,8 @@ const ImageWrap = styled.div`
   > img {
     width: 500px;
     height: fit-content;
-    max-height: 80vh; /* 높이가 너무 낮은 화면에서 이미지가 넘치지 않게 */
-    object-fit: contain; /* 비율 유지 */
+    max-height: 80vh;
+    object-fit: contain;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     > img {
@@ -103,7 +103,6 @@ const TitleCard = styled.div`
   border: solid 3px #000;
   font-family: "DosGothic";
   font-weight: 700;
-  // margin: 0 0 0 0;
   font-size: 20px;
   padding: 20px;
 
