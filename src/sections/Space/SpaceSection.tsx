@@ -1,12 +1,13 @@
+import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import gosanIamge from "@/assets/images/space_gosan.jpg";
 import nemoneImage from "@/assets/images/space_nemone.jpg";
+import Section from "@/sections/Section";
 
 const SpaceSection = () => {
   return (
-    <Wrap id="space">
-      <Title>Space</Title>
+    <Section id="space" title="Space" paddingMobile="30px 20px 60px 20px">
       <ContentWrap>
         <SpaceList>
           <SpaceItemWrap>
@@ -23,33 +24,14 @@ const SpaceSection = () => {
           </SpaceItemWrap>
         </SpaceList>
       </ContentWrap>
-    </Wrap>
+    </Section>
   );
 };
 
 export default SpaceSection;
 
-const Wrap = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 80px 20px 40px;
-
-  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    padding: 24px;
-  }
-`;
-
 const ContentWrap = styled.div`
   max-width: ${({ theme }) => theme.layout.maxWidth};
-`;
-
-const Title = styled.h1`
-  font-family: "DosGothic";
-  margin: 0 0 40px 0;
 `;
 
 const SpaceList = styled.ul`
@@ -64,7 +46,7 @@ const SpaceItemWrap = styled.li`
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
   > img {
     width: inherit;
     height: auto;
@@ -75,6 +57,6 @@ const SpaceItemWrap = styled.li`
   }
 
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    font-size: 14px;
+    font-size: 13px;
   }
 `;

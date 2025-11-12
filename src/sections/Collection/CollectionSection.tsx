@@ -1,5 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import Section from "@/sections/Section";
 import Carousel from "@/components/Carousel";
 import { bookmarkProducts } from "@/data/products";
 
@@ -12,10 +14,8 @@ type Product = {
 
 const CollectionSection = () => {
   const typedProducts = bookmarkProducts as Product[];
-  console.log(typedProducts);
   return (
-    <Wrap id="collection">
-      <Title>Collection</Title>
+    <Section id="collection" title="Collection" paddingMobile="30px 0px">
       <CardsWrap>
         <Carousel
           items={typedProducts}
@@ -40,38 +40,17 @@ const CollectionSection = () => {
                     />
                   </Half>
                 ))}
-                <Info>
-                  <Name>{product.name}</Name>
-                </Info>
+                <Info>{/* <Name>{product.name}</Name> */}</Info>
               </ImageWrap>
             </Card>
           )}
         />
       </CardsWrap>
-    </Wrap>
+    </Section>
   );
 };
 
 export default CollectionSection;
-
-const Wrap = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 80px 20px 40px;
-  gap: 20px;
-  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    padding: 0px;
-    gap: 10px;
-  }
-`;
-const Title = styled.h1`
-  font-family: "DosGothic";
-  margin: 0 0 40px 0;
-`;
 
 const CardsWrap = styled.div`
   width: 100%;
@@ -100,6 +79,13 @@ const ImageWrap = styled.div`
     transform: translateY(-4px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
     border-color: rgba(0, 0, 0, 0.12);
+  }
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
+    &:hover {
+      transform: unset;
+      box-shadow: unset;
+      border-color: unset;
+    }
   }
 `;
 

@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
@@ -17,7 +18,7 @@ export default function HomePage() {
       <Header />
       <Main>
         <MainContentsWrap>
-          <TitleCard>*~ 즐거운 독서의 시작 ~*</TitleCard>
+          <TitleCard>˚✧₊⁎ 즐거운 독서의 시작 ⁎⁺˳✧༚</TitleCard>
           <Image src={MainImage} alt="main image" />
         </MainContentsWrap>
         <Image
@@ -34,24 +35,11 @@ export default function HomePage() {
         <CollectionSection />
         <SpaceSection />
         <ContactSection />
-        <Footer />
       </ContentsWrap>
+      <Footer />
     </>
   );
 }
-
-// const Background = styled.div`
-//   position: sticky;
-//   top: 0;
-//   height: 100vh;
-//   overflow: hidden;
-//   display: flex;
-//   justify-content: center;
-//   padding: 96px 0 0 0;
-//   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-//     padding: 130px 0 0 0;
-//   }
-// `;
 
 const ContentsWrap = styled.div`
   position: relative;
@@ -61,7 +49,7 @@ const ContentsWrap = styled.div`
   justify-content: center;
   width: 100%;
   background-color: #fff;
-  gap: 40px;
+  gap: 20px;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     gap: 20px;
   }
