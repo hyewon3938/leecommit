@@ -131,10 +131,8 @@ export default function ContactSection() {
     >
       <Inner>
         <Description>
-          <p>
-            문의 내용을 남겨 주시면, 담당자가 확인 후 빠르게 회신드리겠습니다.
-          </p>
-          {/* <p>담당자가 확인 후 빠르게 회신드리겠습니다.</p> */}
+          <p>문의 내용을 남겨 주시면,</p>
+          <p> 담당자가 확인 후 빠르게 회신드리겠습니다.</p>
         </Description>
 
         <Form onSubmit={handleSubmit} noValidate>
