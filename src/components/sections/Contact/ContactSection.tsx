@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
-import Section from "@/sections/Section";
+import Section from "@/components/sections/Section";
 
 type InquiryType = "" | "입점 요청" | "단체 주문";
 

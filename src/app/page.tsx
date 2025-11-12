@@ -7,10 +7,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackgrondImage from "@/assets/images/background.webp";
 import MainImage from "@/assets/images/main_product.webp";
-import AboutSection from "@/sections/About";
-import CollectionSection from "@/sections/Collection";
-import SpaceSection from "@/sections/Space";
-import ContactSection from "@/sections/Contact";
+import AboutSection from "@/components/sections/About";
+import CollectionSection from "@/components/sections/Collection";
+import SpaceSection from "@/components/sections/Space";
+import ContactSection from "@/components/sections/Contact";
 
 export default function HomePage() {
   return (
@@ -35,8 +35,8 @@ export default function HomePage() {
         <CollectionSection />
         <SpaceSection />
         <ContactSection />
+        <Footer />
       </ContentsWrap>
-      <Footer />
     </>
   );
 }
@@ -49,10 +49,10 @@ const ContentsWrap = styled.div`
   justify-content: center;
   width: 100%;
   background-color: #fff;
-  gap: 20px;
+  /* gap: 20px;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     gap: 20px;
-  }
+  } */
 `;
 
 const Main = styled.div`

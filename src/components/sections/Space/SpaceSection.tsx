@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import gosanIamge from "@/assets/images/space_gosan.jpg";
 import nemoneImage from "@/assets/images/space_nemone.jpg";
-import Section from "@/sections/Section";
+import Section from "@/components/sections/Section";
 
 const SpaceSection = () => {
   return (
