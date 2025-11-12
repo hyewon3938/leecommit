@@ -13,6 +13,14 @@ const GlobalStyle = createGlobalStyle`
     font-display: swap;
 }
 
+
+@font-face {
+    font-family: 'HancomSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomSans-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
   html, body {
     padding: 0;
     margin: 0;

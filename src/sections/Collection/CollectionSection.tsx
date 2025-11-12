@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import Section from "@/sections/Section";
 import Carousel from "@/components/Carousel";
 import { bookmarkProducts } from "@/data/products";
 
@@ -12,10 +13,8 @@ type Product = {
 
 const CollectionSection = () => {
   const typedProducts = bookmarkProducts as Product[];
-  console.log(typedProducts);
   return (
-    <Wrap id="collection">
-      <Title>Collection</Title>
+    <Section id="collection" title="Collection" paddingMobile="30px 0px">
       <CardsWrap>
         <Carousel
           items={typedProducts}
@@ -40,15 +39,13 @@ const CollectionSection = () => {
                     />
                   </Half>
                 ))}
-                <Info>
-                  <Name>{product.name}</Name>
-                </Info>
+                <Info>{/* <Name>{product.name}</Name> */}</Info>
               </ImageWrap>
             </Card>
           )}
         />
       </CardsWrap>
-    </Wrap>
+    </Section>
   );
 };
 

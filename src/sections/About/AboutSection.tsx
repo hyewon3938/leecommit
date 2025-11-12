@@ -2,11 +2,11 @@ import Image from "next/image";
 import styled from "styled-components";
 import backgrondImage from "@/assets/images/about.webp";
 import squareLogo from "@/assets/icons/square_logo.webp";
+import Section from "@/sections/Section";
 
 const AboutSection = () => {
   return (
-    <Wrap id="about">
-      <Title>About</Title>
+    <Section id="about" title="About">
       <ContentsWrap>
         <ImageWrap>
           <Image src={backgrondImage} alt="leecommit about image" />
@@ -42,30 +42,11 @@ const AboutSection = () => {
           </TextWrap>
         </LogoTextWrap>
       </ContentsWrap>
-    </Wrap>
+    </Section>
   );
 };
 
 export default AboutSection;
-
-const Wrap = styled.section`
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 80px 20px 40px;
-  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    padding: 40px 24px;
-  }
-`;
-
-const Title = styled.h1`
-  font-family: "DosGothic";
-  margin: 0 0 40px 0;
-`;
 
 const ContentsWrap = styled.div`
   position: relative;
@@ -125,7 +106,7 @@ const LogoWrap = styled.div`
 
 const TextWrap = styled.div`
   word-break: keep-all;
-  line-height: 1.4;
+  line-height: 1.5;
   > p {
     margin: 10px 0;
   }
