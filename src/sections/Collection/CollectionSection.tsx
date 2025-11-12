@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Section from "@/sections/Section";
@@ -50,25 +51,6 @@ const CollectionSection = () => {
 };
 
 export default CollectionSection;
-
-const Wrap = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 80px 20px 40px;
-  gap: 20px;
-  @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    padding: 0px;
-    gap: 10px;
-  }
-`;
-const Title = styled.h1`
-  font-family: "DosGothic";
-  margin: 0 0 40px 0;
-`;
 
 const CardsWrap = styled.div`
   width: 100%;

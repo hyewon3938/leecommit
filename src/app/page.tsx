@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
@@ -17,7 +18,7 @@ export default function HomePage() {
       <Header />
       <Main>
         <MainContentsWrap>
-          {/* <TitleCard>*~ 즐거운 독서의 시작 ~*</TitleCard> */}
+          <TitleCard>˚✧₊⁎ 즐거운 독서의 시작 ⁎⁺˳✧༚</TitleCard>
           <Image src={MainImage} alt="main image" />
         </MainContentsWrap>
         <Image
@@ -82,23 +83,23 @@ const MainContentsWrap = styled.div`
   }
 `;
 
-// const TitleCard = styled.div`
-//   position: absolute;
-//   top: 200px;
-//   width: fit-content;
-//   height: fit-content;
-//   background-color: #fff;
-//   border: solid 3px #000;
-//   font-family: "DosGothic";
-//   font-weight: 700;
-//   margin: 0 0 0 0;
-//   font-size: 20px;
-//   padding: 20px;
+const TitleCard = styled.div`
+  position: absolute;
+  top: 200px;
+  width: fit-content;
+  height: fit-content;
+  background-color: #fff;
+  border: solid 3px #000;
+  font-family: "DosGothic";
+  font-weight: 700;
+  margin: 0 0 0 0;
+  font-size: 20px;
+  padding: 20px;
 
-//   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-//     margin: 0 16px 0 16px;
-//     font-size: 16px;
-//     padding: 12px;
-//     top: 200px;
-//   }
-// `;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin: 0 16px 0 16px;
+    font-size: 16px;
+    padding: 12px;
+    top: 200px;
+  }
+`;

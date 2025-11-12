@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import gosanIamge from "@/assets/images/space_gosan.jpg";
@@ -45,7 +46,7 @@ const SpaceItemWrap = styled.li`
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
   > img {
     width: inherit;
     height: auto;

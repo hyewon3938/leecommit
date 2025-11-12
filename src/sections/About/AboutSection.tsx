@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import backgrondImage from "@/assets/images/about.webp";
@@ -107,6 +108,7 @@ const LogoWrap = styled.div`
 const TextWrap = styled.div`
   word-break: keep-all;
   line-height: 1.5;
+  font-size: 15px;
   > p {
     margin: 10px 0;
   }

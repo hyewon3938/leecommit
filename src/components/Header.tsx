@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -71,8 +71,8 @@ const Wrap = styled.header<{ $isTop: boolean }>`
   width: 100%;
   z-index: 10;
   background-color: ${({ $isTop }) => ($isTop ? "transparent" : "#fff")};
-  border-bottom: ${({ isTop }) =>
-    isTop ? "none" : "1px solid rgba(0,0,0,0.1)"};
+  border-bottom: ${({ $isTop }) =>
+    $isTop ? "none" : "1px solid rgba(0,0,0,0.1)"};
   transition: background-color 0.25s ease, border-color 0.25s ease,
     border-bottom 0.25s ease;
 `;
