@@ -5,9 +5,8 @@ import Image from "next/image";
 const Header = () => {
   const storeUrl = process.env.NEXT_PUBLIC_SMARTSTORE_URL ?? "/shop";
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "auto" });
-    document.body.getBoundingClientRect();
+  const refresh = () => {
+    window.location.reload();
   };
 
   return (
@@ -18,7 +17,7 @@ const Header = () => {
             src={Logo}
             alt="leecommit-logo"
             height={30}
-            onClick={scrollToTop}
+            onClick={refresh}
           />
         </TopRow>
 
