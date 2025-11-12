@@ -5,7 +5,15 @@ import styled from "styled-components";
 import emailjs from "@emailjs/browser";
 import Section from "@/components/sections/Section";
 
-type InquiryType = "" | "입점 요청" | "단체 주문";
+const INQUIRY_OPTIONS = [
+  { value: "", label: "선택해 주세요" },
+  { value: "store", label: "입점 요청" },
+  { value: "group", label: "단체 주문" },
+  { value: "collab", label: "협업 문의" },
+  { value: "etc", label: "기타 문의" },
+] as const;
+
+type InquiryType = (typeof INQUIRY_OPTIONS)[number]["value"];
 
 interface FormState {
   name: string;
@@ -123,8 +131,10 @@ export default function ContactSection() {
     >
       <Inner>
         <Description>
-          <p>입점 제안이나 단체 주문 문의를 남겨 주시면, </p>
-          <p>담당자가 확인 후 빠르게 회신드리겠습니다.</p>
+          <p>
+            문의 내용을 남겨 주시면, 담당자가 확인 후 빠르게 회신드리겠습니다.
+          </p>
+          {/* <p>담당자가 확인 후 빠르게 회신드리겠습니다.</p> */}
         </Description>
 
         <Form onSubmit={handleSubmit} noValidate>
@@ -166,10 +176,21 @@ export default function ContactSection() {
                 onChange={handleChange}
                 required
               >
-                <option value="">선택해 주세요</option>
+                {INQUIRY_OPTIONS.map((opt) => (
+                  <option
+                    key={opt.value}
+                    value={opt.value}
+                    disabled={opt.value === ""}
+                    hidden={opt.value === ""}
+                  >
+                    {opt.label}
+                  </option>
+                ))}
+                {/* <option value="">선택해 주세요</option>
                 <option value="입점 요청">입점 요청</option>
                 <option value="단체 주문">단체 주문</option>
-                <option value="기타 문의">기타 문의</option>
+                <option value="협업 문의">협업 문의</option>
+                <option value="기타 문의">기타 문의</option> */}
               </Select>
             </Field>
           </Row>
