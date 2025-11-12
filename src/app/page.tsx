@@ -18,8 +18,10 @@ export default function HomePage() {
       <Header />
       <Main>
         <MainContentsWrap>
-          <TitleCard>˚✧₊⁎ 즐거운 독서의 시작 ⁎⁺˳✧༚</TitleCard>
-          <Image src={MainImage} alt="main image" />
+          <ImageWrap>
+            <Image src={MainImage} alt="main image" />
+            <TitleCard>˚✧₊⁎ 즐거운 독서의 시작 ⁎⁺˳✧༚</TitleCard>
+          </ImageWrap>
         </MainContentsWrap>
         <Image
           src={BackgrondImage}
@@ -71,9 +73,18 @@ const MainContentsWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const ImageWrap = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   > img {
     width: 500px;
     height: fit-content;
+    max-height: 80vh; /* 높이가 너무 낮은 화면에서 이미지가 넘치지 않게 */
+    object-fit: contain; /* 비율 유지 */
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     > img {
@@ -85,14 +96,14 @@ const MainContentsWrap = styled.div`
 
 const TitleCard = styled.div`
   position: absolute;
-  top: 200px;
+  top: 60px;
   width: fit-content;
   height: fit-content;
   background-color: #fff;
   border: solid 3px #000;
   font-family: "DosGothic";
   font-weight: 700;
-  margin: 0 0 0 0;
+  // margin: 0 0 0 0;
   font-size: 20px;
   padding: 20px;
 
@@ -100,6 +111,6 @@ const TitleCard = styled.div`
     margin: 0 16px 0 16px;
     font-size: 16px;
     padding: 12px;
-    top: 200px;
+    top: 30px;
   }
 `;
