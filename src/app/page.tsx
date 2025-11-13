@@ -107,9 +107,10 @@ const TitleCard = styled.div`
   padding: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    margin: 0 16px 0 16px;
+    display: none;
+    /* margin: 0 16px 0 16px;
     font-size: 16px;
     padding: 12px;
-    top: 30px;
+    top: 30px; */
   }
 `;
