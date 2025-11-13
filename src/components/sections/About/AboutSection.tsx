@@ -1,7 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import styled from "styled-components";
 import Section from "@/components/sections/Section";
+import CommonImage from "@/components/CommonImage";
 
 const AboutSection = () => {
   const S3_BASE = process.env.NEXT_PUBLIC_S3_BASE_URL + "/brand";
@@ -10,22 +10,16 @@ const AboutSection = () => {
     <Section id="about" title="About">
       <ContentsWrap>
         <ImageWrap>
-          <Image
+          <CommonImage
             src={`${S3_BASE}/about.webp`}
             alt="leecommit about image"
-            width={1200}
-            height={800}
-            sizes="(max-width: 768px) 100vw, 1200px"
           />
         </ImageWrap>
         <LogoTextWrap>
           <LogoWrap>
-            <Image
+            <CommonImage
               src={`${S3_BASE}/square_logo.webp`}
               alt="leecommit square logo"
-              width={1200}
-              height={800}
-              sizes="(max-width: 768px) 100vw, 1200px"
             />
           </LogoWrap>
           <TextWrap>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Image from "next/image";
 import Section from "@/components/sections/Section";
+import CommonImage from "@/components/CommonImage";
 
 const SpaceSection = () => {
   const S3_BASE = process.env.NEXT_PUBLIC_S3_BASE_URL + "/space";
@@ -11,24 +11,12 @@ const SpaceSection = () => {
       <ContentWrap>
         <SpaceList>
           <SpaceItemWrap>
-            <SpaceImage
-              src={`${S3_BASE}/space_gosan.webp`}
-              alt="space1"
-              width={1200}
-              height={800}
-              sizes="(max-width: 768px) 100vw, 1200px"
-            />
+            <CommonImage src={`${S3_BASE}/space_gosan.webp`} alt="space1" />
             <p>제주 고산의 낮</p>
             <address>제주 제주시 한경면 고산로 26-1</address>
           </SpaceItemWrap>
           <SpaceItemWrap>
-            <SpaceImage
-              src={`${S3_BASE}/space_nemone.webp`}
-              alt="space2"
-              width={1200}
-              height={800}
-              sizes="(max-width: 768px) 100vw, 1200px"
-            />
+            <CommonImage src={`${S3_BASE}/space_nemone.webp`} alt="space2" />
             <p>부산 롯데백화점 광복점 네모네</p>
             <address>
               부산 중구 중앙대로 2 롯데백화점 광복점 아쿠아몰 4층
@@ -74,10 +62,4 @@ const SpaceItemWrap = styled.li`
       font-size: 13px;
     }
   }
-`;
-
-const SpaceImage = styled(Image)`
-  width: 100%;
-  height: auto; /* 비율 유지 */
-  display: block;
 `;
