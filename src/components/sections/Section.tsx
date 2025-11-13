@@ -54,12 +54,12 @@ const Wrap = styled.section<{
 `;
 
 const Title = styled.h1`
-  font-family: "HancomSans";
-  font-size: 20px;
+  font-family: "HsJandari";
+  font-size: 24px;
   margin: 0 0 40px 0;
-
+  font-weight: 600;
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
     margin: 0 0 20px 0;
-    font-size: 18px;
+    font-size: 20px;
   }
 `;
