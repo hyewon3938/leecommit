@@ -5,8 +5,6 @@ import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BackgrondImage from "@/assets/images/background.webp";
-import MainImage from "@/assets/images/main_product.webp";
 import AboutSection from "@/components/sections/About";
 import CollectionSection from "@/components/sections/Collection";
 import SpaceSection from "@/components/sections/Space";
@@ -19,17 +17,22 @@ export default function HomePage() {
       <Main>
         <MainContentsWrap>
           <ImageWrap>
-            <Image src={MainImage} alt="main image" />
+            <Image
+              src="/main_product.webp"
+              alt="main image"
+              fill
+              style={{ objectFit: "contain" }}
+              priority
+            />
             <TitleCard>˚✧₊⁎ 즐거운 독서의 시작 ⁎⁺˳✧༚</TitleCard>
           </ImageWrap>
         </MainContentsWrap>
-        <Image
-          src={BackgrondImage}
+        <BackgroundImage
+          src="/background.webp"
           alt="leecommit background"
           fill
           style={{ objectFit: "cover" }}
           priority
-          placeholder="blur"
         />
       </Main>
       <ContentsWrap>
@@ -62,8 +65,13 @@ const Main = styled.div`
   top: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
+`;
+
+const BackgroundImage = styled(Image)`
+  z-index: 0;
 `;
 
 const MainContentsWrap = styled.div`
@@ -77,27 +85,20 @@ const MainContentsWrap = styled.div`
 
 const ImageWrap = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  > img {
-    width: 500px;
-    height: fit-content;
-    max-height: 80vh;
-    object-fit: contain;
-  }
+  width: 650px;
+  max-height: 80vh;
+  height: min(80vh, 700px);
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    > img {
-      width: 80%;
-      height: fit-content;
-    }
+    width: 80%;
   }
 `;
 
 const TitleCard = styled.div`
   position: absolute;
   top: 60px;
-  width: fit-content;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
   height: fit-content;
   background-color: #fff;
   border: solid 3px #000;
@@ -107,9 +108,10 @@ const TitleCard = styled.div`
   padding: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    margin: 0 16px 0 16px;
+    display: none;
+    /* margin: 0 16px 0 16px;
     font-size: 16px;
     padding: 12px;
-    top: 30px;
+    top: 30px; */
   }
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import Section from "@/components/sections/Section";
 import Carousel from "@/components/Carousel";
-import { bookmarkProducts } from "@/data/products";
+import { products } from "@/data/products";
 
 type Product = {
   id: string;
@@ -13,37 +13,51 @@ type Product = {
 };
 
 const CollectionSection = () => {
-  const typedProducts = bookmarkProducts as Product[];
+  const typedProducts = products as Product[];
+
   return (
     <Section id="collection" title="Collection" paddingMobile="30px 0px">
       <CardsWrap>
         <Carousel
           items={typedProducts}
           getKey={(product) => product.id}
-          // swiperOptions는 필요하면 여기서만 살짝 덮어쓰기
-          // swiperOptions={{ slidesPerView: 1.2 }}
-          renderItem={(product) => (
-            <Card
-              href={product.link || "#"}
-              target={product.link ? "_blank" : undefined}
-              rel={product.link ? "noopener noreferrer" : undefined}
-            >
-              <ImageWrap>
-                {product.imageUrl.map((url, i) => (
-                  <Half key={i}>
-                    <Image
-                      src={url}
-                      alt={`${product.name} ${i + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 80vw, (max-width: 1200px) 30vw, 320px"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </Half>
-                ))}
-                <Info>{/* <Name>{product.name}</Name> */}</Info>
-              </ImageWrap>
-            </Card>
-          )}
+          renderItem={(product) => {
+            const isSingle = product.imageUrl.length === 1;
+            return (
+              <Card
+                href={product.link || "#"}
+                target={product.link ? "_blank" : undefined}
+                rel={product.link ? "noopener noreferrer" : undefined}
+              >
+                <ImageWrap $isSingle={isSingle}>
+                  {isSingle ? (
+                    <Single>
+                      <Image
+                        src={product.imageUrl[0]}
+                        alt={product.name}
+                        fill
+                        sizes="(max-width: 768px) 80vw, (max-width: 1200px) 30vw, 320px"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </Single>
+                  ) : (
+                    product.imageUrl.map((url, i) => (
+                      <Half key={i}>
+                        <Image
+                          src={url}
+                          alt={`${product.name} ${i + 1}`}
+                          fill
+                          sizes="(max-width: 768px) 80vw, (max-width: 1200px) 30vw, 320px"
+                          style={{ objectFit: "cover" }}
+                        />
+                      </Half>
+                    ))
+                  )}
+                  <Info>{/* <Name>{product.name}</Name> */}</Info>
+                </ImageWrap>
+              </Card>
+            );
+          }}
         />
       </CardsWrap>
     </Section>
@@ -67,9 +81,11 @@ const Card = styled.a`
   }
 `;
 
-const ImageWrap = styled.div`
+// ✅ 단일 이미지일 때 flex-direction 해제
+const ImageWrap = styled.div<{ $isSingle?: boolean }>`
   position: relative;
   display: flex;
+  flex-direction: ${({ $isSingle }) => ($isSingle ? "column" : "row")};
   width: 100%;
   aspect-ratio: 1 / 0.72;
   background: #f5f5f5;
@@ -92,6 +108,13 @@ const ImageWrap = styled.div`
 const Half = styled.div`
   flex: 1;
   position: relative;
+`;
+
+// ✅ 단일 이미지용 래퍼
+const Single = styled.div`
+  flex: 1;
+  position: relative;
+  width: 100%;
 `;
 
 const Info = styled.div`
