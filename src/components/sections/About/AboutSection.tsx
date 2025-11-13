@@ -1,29 +1,38 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import backgrondImage from "@/assets/images/about.webp";
-import squareLogo from "@/assets/icons/square_logo.webp";
 import Section from "@/components/sections/Section";
 
 const AboutSection = () => {
+  const S3_BASE = process.env.NEXT_PUBLIC_S3_BASE_URL + "/brand";
+
   return (
     <Section id="about" title="About">
       <ContentsWrap>
         <ImageWrap>
-          <Image src={backgrondImage} alt="leecommit about image" />
+          <Image
+            src={`${S3_BASE}/about.webp`}
+            alt="leecommit about image"
+            width={1200}
+            height={800}
+            sizes="(max-width: 768px) 100vw, 1200px"
+          />
         </ImageWrap>
         <LogoTextWrap>
           <LogoWrap>
-            <Image src={squareLogo} alt="leecommit square logo" />
+            <Image
+              src={`${S3_BASE}/square_logo.webp`}
+              alt="leecommit square logo"
+              width={1200}
+              height={800}
+              sizes="(max-width: 768px) 100vw, 1200px"
+            />
           </LogoWrap>
           <TextWrap>
             <p>
               리커밋은 책을 읽는 시간이
               <br /> 일상의 즐거움이 되길 바라는 마음에서 시작되었습니다.
             </p>
-            {/* <p>
-            책을 펼치는 순간, 작지만 기분 좋은 이유 하나가 더해지길 바랍니다.
-          </p> */}
             <p>
               읽는다는 건 결국 이어가는 일이라 믿습니다.
               <br />
@@ -69,6 +78,7 @@ const ImageWrap = styled.div`
   > img {
     width: auto;
     height: 100%;
+    display: block;
   }
 
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
