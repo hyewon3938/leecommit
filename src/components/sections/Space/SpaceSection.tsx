@@ -57,9 +57,12 @@ const SpaceItemWrap = styled.li`
   }
 
   @media (max-width: ${({ theme }) => theme?.breakpoints?.mobile}) {
-    font-size: 13px;
     > p {
-      margin: 8px 0 2px 0;
+      font-size: 13px;
+      margin: 8px 0 4px 0;
+    }
+    > address {
+      font-size: 13px;
     }
   }
 `;
