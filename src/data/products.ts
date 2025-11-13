@@ -10,7 +10,7 @@ const S3_BASE = process.env.NEXT_PUBLIC_S3_BASE_URL + "/products";
 const STORE_MARKETING_LINK_BASE = "https://mkt.shopping.naver.com/link";
 
 // 책갈피
-export const bookmarkProducts: Product[] = [
+export const products: Product[] = [
   {
     id: "bookmark-01",
     name: "초록 꽃나무 끈갈피",
@@ -21,6 +21,13 @@ export const bookmarkProducts: Product[] = [
     link: `${STORE_MARKETING_LINK_BASE}/6911a8cb0899f21b8ad51cfe`,
   },
   {
+    id: "plant-04",
+    name: "비즈 식물",
+    imageUrl: [`${S3_BASE}/plant/04.webp`],
+    link: `${STORE_MARKETING_LINK_BASE}/69108b1cd076bd4c8f744bf5`,
+  },
+
+  {
     id: "bookmark-02",
     name: "딸기 꽃 끈갈피",
     imageUrl: [
@@ -28,6 +35,12 @@ export const bookmarkProducts: Product[] = [
       `${S3_BASE}/bookmark/02/02.webp`,
     ],
     link: `${STORE_MARKETING_LINK_BASE}/6911a8cb8099f270a76abebc`,
+  },
+  {
+    id: "plant-05",
+    name: "비즈 식물",
+    imageUrl: [`${S3_BASE}/plant/05.webp`],
+    link: `${STORE_MARKETING_LINK_BASE}/69108b1cd076bd4c8f744bf5`,
   },
   {
     id: "bookmark-03",
@@ -39,6 +52,13 @@ export const bookmarkProducts: Product[] = [
     link: `${STORE_MARKETING_LINK_BASE}/68b108db2259e62bd9345331`,
   },
   {
+    id: "plant-02",
+    name: "비즈 식물",
+    imageUrl: [`${S3_BASE}/plant/02.webp`],
+    link: `${STORE_MARKETING_LINK_BASE}/69108b1cd076bd4c8f744bf5`,
+  },
+
+  {
     id: "bookmark-04",
     name: "행운의 짹갈피",
     imageUrl: [
@@ -47,14 +67,10 @@ export const bookmarkProducts: Product[] = [
     ],
     link: `${STORE_MARKETING_LINK_BASE}/6911a8cb26516b6754b68bc2`,
   },
+  {
+    id: "plant-01",
+    name: "비즈 식물",
+    imageUrl: [`${S3_BASE}/plant/07.webp`],
+    link: `${STORE_MARKETING_LINK_BASE}/69108b1cd076bd4c8f744bf5`,
+  },
 ];
-
-// 비즈 식물
-// export const plantProducts: Product[] = [
-//   {
-//     id: "plant-01",
-//     name: "비즈 선인장 오브제",
-//     imageUrl: `${S3_BASE}/plant/01/01.webp`,
-//     link: "https://smartstore.naver.com/...",
-//   },
-// ];
