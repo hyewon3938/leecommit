@@ -13,6 +13,13 @@ const GlobalStyle = createGlobalStyle`
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'HsJandari';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2510-2@1.0/HSJandari.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
 
 @font-face {
     font-family: 'HancomSans';

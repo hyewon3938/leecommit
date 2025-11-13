@@ -17,7 +17,7 @@ const Header = () => {
     <Wrap $isTop={isTop}>
       <Inner>
         <TopRow role="button" onClick={refresh} aria-label="Go to home">
-          <Logo style={{ color: isTop ? "#fff" : "#000" }} />
+          <Logo fill={isTop ? "#fff" : "#000"} />
         </TopRow>
         <Nav>
           <NavItem
@@ -83,8 +83,9 @@ const TopRow = styled.div`
   align-items: center;
   justify-content: flex-start;
   cursor: pointer;
+  padding: 5px 0%;
   svg {
-    height: 38px;
+    height: 28px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
