@@ -13,6 +13,16 @@ const Header = () => {
     window.location.href = "/";
   };
 
+  const handleMenuClick = (menuName: string) => {
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "menu_click",
+        menu_name: menuName,
+      });
+    }
+  };
+
   return (
     <Wrap $isTop={isTop}>
       <Inner>
@@ -25,19 +35,36 @@ const Header = () => {
             href={storeUrl}
             target="_blank"
             rel="noreferrer"
+            onClick={() => handleMenuClick("Shop")}
           >
             Shop
           </NavItem>
-          <NavItem $isTop={isTop} href="#about">
+          <NavItem
+            $isTop={isTop}
+            href="#about"
+            onClick={() => handleMenuClick("About")}
+          >
             About
           </NavItem>
-          <NavItem $isTop={isTop} href="#collection">
+          <NavItem
+            $isTop={isTop}
+            href="#collection"
+            onClick={() => handleMenuClick("Collection")}
+          >
             Collection
           </NavItem>
-          <NavItem $isTop={isTop} href="#space">
+          <NavItem
+            $isTop={isTop}
+            href="#space"
+            onClick={() => handleMenuClick("Space")}
+          >
             Space
           </NavItem>
-          <NavItem $isTop={isTop} href="#contact">
+          <NavItem
+            $isTop={isTop}
+            href="#contact"
+            onClick={() => handleMenuClick("Contact")}
+          >
             Contact
           </NavItem>
         </Nav>
