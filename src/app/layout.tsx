@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Script from "next/script";
 import type { Metadata } from "next";
+import GTMPageView from "@/components/GTMPageView";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
 
 export const metadata: Metadata = {
@@ -70,6 +71,11 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+
+        <Suspense fallback={null}>
+          <GTMPageView />
+        </Suspense>
+
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
