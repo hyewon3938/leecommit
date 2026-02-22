@@ -54,6 +54,12 @@ export default function RootLayout({
         />
         {/* End Google Tag Manager */}
         <link
+          rel="preload"
+          as="image"
+          href="/main_product.webp"
+          type="image/webp"
+        />
+        <link
           rel="stylesheet"
           as="style"
           crossOrigin="anonymous"

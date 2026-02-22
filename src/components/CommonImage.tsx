@@ -6,7 +6,7 @@ export default function CommonImage(props: ImageProps) {
 
   return (
     <Image
-      quality={90}
+      quality={75}
       width={fill ? undefined : width ?? 1200}
       height={fill ? undefined : height ?? 800}
       sizes="(max-width: 768px) 100vw, 1200px"

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/Header";
@@ -32,7 +31,6 @@ export default function HomePage() {
           alt="leecommit background"
           fill
           style={{ objectFit: "cover" }}
-          priority
         />
       </Main>
       <ContentsWrap>
@@ -54,10 +52,6 @@ const ContentsWrap = styled.div`
   justify-content: center;
   width: 100%;
   background-color: #fff;
-  /* gap: 20px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    gap: 20px;
-  } */
 `;
 
 const Main = styled.div`
@@ -109,9 +103,5 @@ const TitleCard = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: none;
-    /* margin: 0 16px 0 16px;
-    font-size: 16px;
-    padding: 12px;
-    top: 30px; */
   }
 `;

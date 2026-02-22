@@ -34,7 +34,7 @@ const Carousel = <T,>({
     pagination: {
       clickable: true,
     },
-    loop: true,
+    rewind: true,
     autoplay: { delay: 3000 },
     speed: 600,
     breakpoints: {

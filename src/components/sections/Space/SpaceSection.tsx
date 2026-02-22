@@ -15,13 +15,13 @@ const SpaceSection = () => {
             <p>제주 고산의 낮</p>
             <address>제주 제주시 한경면 고산로 26-1</address>
           </SpaceItemWrap>
-          <SpaceItemWrap>
+          {/* <SpaceItemWrap>
             <CommonImage src={`${S3_BASE}/space_nemone.webp`} alt="space2" />
             <p>부산 롯데백화점 광복점 네모네</p>
             <address>
               부산 중구 중앙대로 2 롯데백화점 광복점 아쿠아몰 4층
             </address>
-          </SpaceItemWrap>
+          </SpaceItemWrap> */}
         </SpaceList>
       </ContentWrap>
     </Section>
