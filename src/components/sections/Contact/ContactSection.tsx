@@ -105,7 +105,9 @@ export default function ContactSection() {
             from_name: form.name,
             reply_to: form.email,
             message: form.message,
-            inquiry_type: form.inquiryType,
+            inquiry_type:
+              INQUIRY_OPTIONS.find((opt) => opt.value === form.inquiryType)
+                ?.label ?? form.inquiryType,
           },
           publicKey!
         );
